@@ -15,12 +15,19 @@
     <main>
       <section class="main-section1-forms">
         <form class="section1-setRangeForm">
-          <h3 class="form-h3-style"></h3>
-          <label></label>
-          <input></input>
-          <label></label>
-          <input></input>
-          <button></button>
+          <h3 class="form-h3-style">Set Range</h3>
+          <section class="setRangeForm-rangeforms-plus-button">
+            <section class="setRangeForm-rangeBox-plus-label">
+              <label for="min-range" class="setRangeForm-label">Min Range</label>
+              <input type="number" id="min-range" name="min-range" min=0 max=100 class="setRangeForm-textbox"></input>
+            </section>
+            <section class="setRangeForm-rangeBox-plus-label">
+              <label for="max-range" class="setRangeForm-label">Max Range</label>
+              <input type="number" id="max-range" name="max-range" min=1 max=101 class="setRangeForm-textbox"></input>
+            </section>
+            <button class="setRangeForm-updateButton">UPDATE</button>
+          </section>
+
         </form>
         <form>
           <p></p>

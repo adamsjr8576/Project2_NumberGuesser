@@ -19,8 +19,21 @@ body {
   font-weight: 300;
 }
 
-.header-h3-style {
+.header-section-style{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-h4-style {
   color: white;
   margin: 0 0 20px 0;
   font-weight: 300;
+  margin: auto 5px auto 5px;
+}
+
+.header-div-style {
+  border: 1px solid white;
+  width: 75px;
+  height: 0;
 }

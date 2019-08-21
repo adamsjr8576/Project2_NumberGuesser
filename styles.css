@@ -48,7 +48,7 @@ body {
   background-color: #f7f7f7;
   width: 50%;
   height: 100%;
-  padding: 2%;
+  padding: 0;
   border: 1px solid #d0d2d3;
 }
 
@@ -57,10 +57,10 @@ body {
   background-color: white;
   color: black;
   border: 1px solid #d0d2d3;
-  margin: 10px auto 10px auto
+  margin: 10px auto 10px auto;
   /* padding-top: 0%; */
   height: 16.5%;
-  width: 100%;
+  width: 95%;
   display: block;
 
 }
@@ -136,11 +136,11 @@ body {
   background-color: white;
   color: black;
   border: 1px solid #d0d2d3;
-  margin: 10px auto 10px auto
+  margin: 10px auto 10px auto;
   /* padding-top: 0%; */
   height: 50%;
-  width: 100%;
-  display: block;
+  width: 95%;
+  /* display: block; */
 
 }
 
@@ -167,6 +167,22 @@ body {
 
   width: 150%;
   font-size: 125%;
+  margin-bottom: 20px;
+}
+
+.challengeForm-guessBox-plus-label {
+
+  display: flex;
+  flex-direction: column;
+  width: 37%;
+  /* margin-right: 5%; */
+}
+
+.challengeForm-guessbox {
+
+  width: 100%;
+  font-size: 125%;
+  margin-bottom: 20px;
 }
 
 .section2-button-list {
@@ -185,7 +201,9 @@ body {
   background-color: #404041;
   border-radius: 20px;
   margin: auto 10px 0 10px;
-  padding: 13px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 100%;
 
 }
 
@@ -196,5 +214,7 @@ body {
   background-color: #d0d2d3;
   border-radius: 20px;
   margin: auto 10px 0 10px;
-  padding: 13px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 100%;
 }

@@ -139,20 +139,19 @@ body {
   margin-bottom: 20px;
 }
 
-.article-challenger1-guess {
+.article-challenger-guess {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.article-challenger2-guess {
+/* .article-challenger-guess {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-}
+} */
 
 .challenger1-guess-style {
   font-size: 400%;

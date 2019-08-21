@@ -107,7 +107,7 @@ body {
 }
 
 .section1-article-style {
-  width: 100%;
+  width: 95%;
   border: 1px solid #d0d2d3;
   margin: 10px auto 10px auto;
   background: white;
@@ -115,11 +115,14 @@ body {
 
 .article-h3-style {
   width: 40%;
-  margin-left: 5%;
+  margin: 5px 0 5px 3%;
+  border: 1px solid blue;
 }
 
 .h5-challenger-style {
   margin: 0;
+  border: 1px solid blue;
+
 }
 
 
@@ -137,6 +140,8 @@ body {
   display: flex;
   width: 100%;
   margin-bottom: 20px;
+  border: 1px solid blue;
+
 }
 
 .article-challenger-guess {
@@ -144,22 +149,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid blue;
+  margin: 0 5% 0 5%;
 }
-
-/* .article-challenger-guess {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
 .challenger1-guess-style {
   font-size: 400%;
   margin: 0;
   font-weight: 700;
   color: #dd1972;
+  border: 1px solid blue;
+
 }
 
 .challenger-paragraph {
   margin: 0px 10px 0px 10px;
+  border: 1px solid blue;
+
 }

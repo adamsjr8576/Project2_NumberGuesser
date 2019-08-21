@@ -104,5 +104,63 @@ body {
   color: white;
   background-color: #404041;
   border-radius: 10px;
+}
+
+.section1-article-style {
+  width: 100%;
+  border: 1px solid #d0d2d3;
+  margin: 10px auto 10px auto;
+  background: white;
+}
+
+.article-h3-style {
+  width: 40%;
+  margin-left: 5%;
+}
+
+.h5-challenger-style {
+  margin: 0;
+}
 
 
+/* .challenger-vert-line {
+  width: 0;
+  height: 200px;
+  border: 1px solid #d0d2d3;
+  margin: 0 auto 0 auto;
+  position: absolute;
+  top: 80%;
+  left: 27.5%;
+} */
+
+.article-section-guess {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.article-challenger1-guess {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-challenger2-guess {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.challenger1-guess-style {
+  font-size: 400%;
+  margin: 0;
+  font-weight: 700;
+  color: #dd1972;
+}
+
+.challenger-paragraph {
+  margin: 0px 10px 0px 10px;
+}

@@ -49,7 +49,7 @@ body {
 
   background-color: #f7f7f7;
   width: 50%;
-  height: 750px;
+  height: 700px;
   padding: 0;
   border: 1px solid #d0d2d3;
 
@@ -141,9 +141,10 @@ body {
   border: 1px solid #d0d2d3;
   margin: 10px auto 10px auto;
   /* padding-top: 0%; */
-  height: 50%;
+  /* height: 50%; */
   width: 95%;
   /* display: block; */
+
 
 }
 
@@ -155,6 +156,7 @@ body {
   width: 95%;
   align-items: flex-end;
   margin: 0px auto 10px auto;
+
 
 }
 
@@ -178,6 +180,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 37%;
+
   /* margin-right: 5%; */
 }
 
@@ -192,6 +195,8 @@ body {
 
   display: flex;
   justify-content: space-around;
+
+
 
 
 }
@@ -287,7 +292,7 @@ body {
 
   background-color: #404041;
   width: 50%;
-  height: 750px;
+  height: 700px;
   padding: 0;
   border: 1px solid #d0d2d3;
 
@@ -312,64 +317,73 @@ body {
   font-weight: 700;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+
+
 }
 
 .card-header-h4 {
 
-  display: inline;
-  margin: 0 auto 0 auto;
+  /* display: inline; */
+  margin: auto;
   font-size: 125%;
+
 }
 
 .card-header-p {
 
-  display: inline;
-  margin: auto 0px  auto 0px;
+  /* display: inline; */
+  /* margin: auto 0px  auto 0px; */
   font-weight: 300;
-  font-size: 35%;
+  font-size: 85%;
+  /* margin-top: 25px; */
 
 }
 
 .card-div-style {
   border: 1px solid #f7f7f7;
-  width: 80%;
+  width: 90%;
   height: 0;
   margin: auto;
 }
 
-.section2-card-body {
-
-  height: 100%;
-}
 
 .section2-body-h1 {
 
   font-size: 300%;
   font-weight: 700;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
 
 }
-.section2-card-footer {
-
-
-  margin: auto;
-  height: 25%;
-  width: 100%;
+  .section2-card-footer {
   display: flex;
-  justify-content: space-around;
-
+  justify-content: space-between;
+  margin: 0 20px 0 20px;
+  align-items: center;
 }
 
 .card-footer-p {
-
-  display: inline;
-  margin: auto;
   font-weight: 300;
-  font-size: 60%;
+  font-size: 100%;
+  /* margin-bottom: 20px; */
 
 }
 
 .card-footer-button {
-  display: inline;
+
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #404041;
+  color: #f7f7f7;
+  font-size: 16pt;
+  font-weight: 300;
+  /* text-align: center; */
+
+
+
 }
 
 .section2-font-strong {

@@ -103,8 +103,11 @@ body {
   width: 25%;
   color: white;
   background-color: #404041;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: auto 10px 0 10px;
+  font-size: 100%;
+  font-weight: 700;
+  padding: 7px;
   /* border: 0; */
 }
 
@@ -192,8 +195,8 @@ body {
   color: white;
   background-color: #404041;
   border-radius: 20px;
-  margin: auto 10px 0 10px;
-  padding: 10px;
+  margin: auto 10px 10px 10px;
+  padding: 7px;
   font-weight: 700;
   font-size: 100%;
 
@@ -204,12 +207,11 @@ body {
   width: 30%;
   color: white;
   background-color: #d0d2d3;
-  border-radius: 20px;
-  margin: auto 10px 0 10px;
-  padding: 10px;
+  margin: auto 10px 10px 10px;
+  padding: 7px;
   font-weight: 700;
   font-size: 100%;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .section1-article-style {
@@ -271,4 +273,95 @@ body {
 .challenger-paragraph {
   margin: 0px 10px 0px 10px;
   /* border: 1px solid blue; */
+}
+
+.main-section2-cards {
+
+  background-color: #404041;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  border: 1px solid #d0d2d3;
+}
+
+.section2-card-background {
+
+  background-color: white;
+  width: 90%;
+  height: 25%
+  border: 1px solid #d0d2d3;
+  margin: 10px auto 7px auto;
+  text-align: center;
+
+}
+
+.section2-card-header {
+
+  margin: auto;
+  height: 25%;
+  width: 100%;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-header-h4 {
+
+  display: inline;
+  margin: 0 auto 0 auto;
+  font-size: 125%;
+}
+
+.card-header-p {
+
+  display: inline;
+  margin: auto 0px  auto 0px;
+  font-weight: 300;
+  font-size: 35%;
+
+}
+
+.section2-card-body {
+
+  height: 100%;
+}
+
+.section2-body-h1 {
+
+  font-size: 300%;
+  font-weight: 700;
+
+}
+.section2-card-footer {
+
+
+  margin: auto;
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.card-footer-p {
+
+  display: inline;
+  margin: auto;
+  font-weight: 300;
+  font-size: 40%;
+
+}
+
+.card-footer-button {
+  display: inline;
+}
+
+.section2-font-strong {
+
+  font-weight: 700;
+}
+
+.section2-font-light {
+
+  font-weight: 300;
 }

@@ -97,6 +97,9 @@ function onSubmit(event) {
   changePinkNumberGuess(pinkNumberGuess2, challenger2GuessBox);
   changeChallengerName(scoreChallengerName1, challenger1NameBox);
   changeChallengerName(scoreChallengerName2, challenger2NameBox);
+  changeWinnerCardName(winnerCardChallenger1, challenger1NameBox);
+  changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
+
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -117,3 +120,12 @@ var scoreChallengerName2 = document.getElementById("score-challenger2-name");
   function changeChallengerName (challengerName, challengerInput) {
     challengerName.innerText = challengerInput.value;
   };
+
+//Winner card display!!!
+
+var winnerCardChallenger1 = document.getElementById('card-challenger1-name');
+var winnerCardChallenger2 = document.getElementById('card-challenger2-name');
+
+function changeWinnerCardName (winnerCardName, challengerInput) {
+  winnerCardName.innerText = challengerInput.value;
+};

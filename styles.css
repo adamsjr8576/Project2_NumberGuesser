@@ -195,10 +195,17 @@ body {
 
   display: flex;
   justify-content: space-around;
+}
 
-
-
-
+button.submit-active {
+  width: 40%;
+  color: white;
+  border-radius: 20px;
+  margin: auto 10px 10px 10px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 100%;
+  background-color: #404041;
 }
 
 .section2-submit-button {
@@ -206,7 +213,7 @@ body {
   /* height: 100%; */
   width: 40%;
   color: white;
-  background-color: #404041;
+  background-color: #D0D2D3;
   border-radius: 20px;
   margin: auto 10px 10px 10px;
   padding: 7px;
@@ -214,6 +221,8 @@ body {
   font-size: 100%;
 
 }
+
+
 
 .section2-clear-reset-button {
   /* height: 100%; */

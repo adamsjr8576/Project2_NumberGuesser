@@ -1,3 +1,4 @@
+
 // All four fields add active state
 
 var submitButton = document.querySelector("#submit-button");
@@ -38,52 +39,30 @@ challenger2GuessBox.addEventListener("change", activateSubmitButton);
 //   }
 // clearbutton.addEventListener("click",removeActiveState);
 
+//Change range numbers to match inputs
 
+var minRangeInput = document.getElementById('min-range');
+var maxRangeInput = document.getElementById('max-range');
+var updateRangeButton = document.getElementById('range-update-button');
+var currentRangeMin = document.getElementById('current-min');
+var currentRangeMax = document.getElementById('current-max');
+// var randomNum = getRandomNum();
 
+updateRangeButton.addEventListener('click', updateRange);
+updateRangeButton.addEventListener('click', getRandomNum);
 
+function updateRange() {
+  event.preventDefault(event);
+  currentRangeMin.innerText = minRangeInput.value;
+  currentRangeMax.innerText = maxRangeInput.value;
+};
 
+//Get the random number
 
-// var challenger1NameBox = document.querySelector("#challenger1-name-box");
-//
-// var challenger2NameBox = document.querySelector("#challenger2-name-box");
-//
-// var challenger1GuessBox = document.querySelector("#challenger1-guess-box");
-//
-// var challenger2GuessBox = document.querySelector("#challenger2-guess-box");
+function getRandomNum() {
+  var min = Math.ceil(parseInt(minRangeInput.value));
+  var max = Math.floor(parseInt(maxRangeInput.value));
+  return Math.floor(Math.random() * (max - min)) + min;
+};
 
-
-// submitButton.addEventListener(function, removeInactiveState, addActiveState);
-//
-// function removeInactiveState(){
-//
-//   submitButton.classList.remove(".section2-submit-button");
-//
-// }
-//  function addActiveState() {
-//
-// submitButton.classList.add(".submit-active");
-//
-//  }
-//
-//  function addInactiveState(){
-//
-//    submitButton.classList.add(".section2-submit-button");
-//
-//  }
-//   function removeActiveState() {
-//
-//  submitButton.classList.remove(".submit-active");
-//
-//   }
-//
-// submitButton.addEventListener(function, removeInactiveState, addActiveState);
-
-// submitButton.style['background-color'] = 'red'
-
-// function activateSubmitButton() {
-//   if (challenger1NameBox === null) {
-//     return "positive";
-//   } else {
-//     return "NOT positive";
-//   }
-// }
+var randomNum = getRandomNum();

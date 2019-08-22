@@ -28,11 +28,11 @@
               <label for="max-range" class="setRangeForm-label">Max Range</label>
               <input type="number" id="max-range" name="max-range" min=1 max=101 class="setRangeForm-textbox"></input>
             </section>
-            <button class="setRangeForm-updateButton">UPDATE</button>
+            <button id="range-update-button" class="setRangeForm-updateButton">UPDATE</button>
           </section>
         </form>
         <form class="section2-challenger-forms">
-          <p class="section2-para-currentRange">The Current Range is <span class="min-range-number">1</span> to <span class="max-range-number">100</span></p>
+          <p class="section2-para-currentRange">The Current Range is <span id="current-min" class="min-range-number">1</span> to <span id="current-max" class="max-range-number">100</span></p>
           <div>
             <h3 class="form-h3-style">Challenger 1</h3>
             <section class="challenger1-forms">
@@ -104,5 +104,6 @@
         </article>
       </section>
     </main>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

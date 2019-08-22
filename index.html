@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <title>Number Guesser</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -22,11 +21,11 @@
           <section class="setRangeForm-rangeforms-plus-button">
             <section class="setRangeForm-rangeBox-plus-label">
               <label for="min-range" class="setRangeForm-label">Min Range</label>
-              <input type="number" id="min-range" name="min-range" min=0 max=100 class="setRangeForm-textbox"></input>
+              <input type="number" id="min-range" name="min-range" min=0 max=100 class="setRangeForm-textbox challenger-input-fields"></input>
             </section>
             <section class="setRangeForm-rangeBox-plus-label">
               <label for="max-range" class="setRangeForm-label">Max Range</label>
-              <input type="number" id="max-range" name="max-range" min=1 max=101 class="setRangeForm-textbox"></input>
+              <input type="number" id="max-range" name="max-range" min=1 max=101 class="setRangeForm-textbox challenger-input-fields"></input>
             </section>
             <button id="range-update-button" class="setRangeForm-updateButton">UPDATE</button>
           </section>
@@ -60,12 +59,11 @@
             </section>
           </div>
           <section class="section2-button-list">
-            <button type="button" class="section2-submit-button" id="submit-button">SUBMIT GUESS</button>
+            <button disabled type="button" class="section2-submit-button" id="submit-button">SUBMIT GUESS</button>
             <button class="section2-clear-reset-button">RESET GAME</button>
             <button class="section2-clear-reset-button">CLEAR GAME</button>
           </section>
         </form>
-
         <article class="section1-article-style">
           <h3 class="article-h3-style">Latest Score</h3>
           <section class="article-section-guess">
@@ -85,7 +83,6 @@
           </section>
         </article>
       </section>
-
       <section class="main-section2-cards">
         <article class="section2-card-background">
           <section class="section2-card-header">

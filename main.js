@@ -93,9 +93,27 @@ function onSubmit(event) {
   event.preventDefault();
   compareGuess(challenger1GuessBox, scoreText1);
   compareGuess(challenger2GuessBox, scoreText2);
+  changePinkNumberGuess(pinkNumberGuess1, challenger1GuessBox);
+  changePinkNumberGuess(pinkNumberGuess2, challenger2GuessBox);
+  changeChallengerName(scoreChallengerName1, challenger1NameBox);
+  changeChallengerName(scoreChallengerName2, challenger2NameBox);
 }
 
-// var workingSubmitButton = document.querySelector(".submit-active");
+var workingSubmitButton = document.querySelector(".submit-active");
 
 submitButton.addEventListener("click", onSubmit);
-// submitButton.addEventListener("click", compareGuess(challenger2GuessBox, scoreText2));
+
+//Change pink numbers to match guess, change names to match challenger names
+
+var pinkNumberGuess1 = document.getElementById("score-challenger1-guess");
+var pinkNumberGuess2 = document.getElementById("score-challenger2-guess");
+var scoreChallengerName1 = document.getElementById("score-challenger1-name");
+var scoreChallengerName2 = document.getElementById("score-challenger2-name");
+
+  function changePinkNumberGuess (pinkNumber, numberInput) {
+    pinkNumber.innerText = numberInput.value;
+  };
+
+  function changeChallengerName (challengerName, challengerInput) {
+    challengerName.innerText = challengerInput.value;
+  };

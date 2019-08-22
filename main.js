@@ -94,7 +94,7 @@ function onSubmit(event) {
   compareGuess(challenger2GuessBox, scoreText2);
 }
 
-// var workingSubmitButton = document.querySelector(".submit-active");
+var workingSubmitButton = document.querySelector(".submit-active");
 
 submitButton.addEventListener("click", onSubmit);
 // submitButton.addEventListener("click", compareGuess(challenger2GuessBox, scoreText2));

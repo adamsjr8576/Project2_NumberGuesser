@@ -48,13 +48,14 @@ var randomNum = getRandomNum();
 
 updateRangeButton.addEventListener('click', updateRange);
 updateRangeButton.addEventListener('click', getRandomNum);
-// updateRangeButton.addEventListener('click', checkNum);
+updateRangeButton.addEventListener('click', checkNum);
 
 function updateRange() {
   event.preventDefault(event);
   currentRangeMin.innerText = minRangeInput.value;
   currentRangeMax.innerText = maxRangeInput.value;
 };
+
 
 //Get the random number
 
@@ -64,6 +65,36 @@ function getRandomNum() {
   randomNum = Math.floor(Math.random() * (max - min)) + min;
 };
 
-// function checkNum() {
-//   console.log(randomNum);
-// }
+function checkNum() {
+  console.log(randomNum);
+}
+
+//Winner cards text update
+
+var scoreText1 = document.getElementById("too-high-too-low1");
+var scoreText2 = document.getElementById("too-high-too-low2");
+// These were declared in earlier function:
+// var challenger1GuessBox
+// var challenger2GuessBox
+
+function compareGuess(guess,feedback){
+  console.log("if working say hi");
+  if (parseInt(guess.value) > randomNum) {
+    feedback.innerText = "that's too high";
+  } else if (parseInt(guess.value) < randomNum) {
+    feedback.innerText = "that's too low";
+  } else {
+    feedback.innerText = "BOOM!";
+  }
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+  compareGuess(challenger1GuessBox, scoreText1);
+  compareGuess(challenger2GuessBox, scoreText2);
+}
+
+// var workingSubmitButton = document.querySelector(".submit-active");
+
+submitButton.addEventListener("click", onSubmit);
+// submitButton.addEventListener("click", compareGuess(challenger2GuessBox, scoreText2));

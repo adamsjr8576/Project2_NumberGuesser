@@ -14,8 +14,9 @@ function activateSubmitButton() {
       numberGoodFields++;
     }
   }
-  if (numberGoodFields === 4) {
+  if (numberGoodFields === 6) {
     addActiveState();
+    submitButton.disabled = false;
   }
 }
 

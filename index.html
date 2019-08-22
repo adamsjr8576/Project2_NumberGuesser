@@ -21,11 +21,11 @@
           <section class="setRangeForm-rangeforms-plus-button">
             <section class="setRangeForm-rangeBox-plus-label">
               <label for="min-range" class="setRangeForm-label">Min Range</label>
-              <input type="number" id="min-range" name="min-range" min=0 max=100 class="setRangeForm-textbox"></input>
+              <input type="number" id="min-range" name="min-range" min=0 max=100 class="setRangeForm-textbox challenger-input-fields"></input>
             </section>
             <section class="setRangeForm-rangeBox-plus-label">
               <label for="max-range" class="setRangeForm-label">Max Range</label>
-              <input type="number" id="max-range" name="max-range" min=1 max=101 class="setRangeForm-textbox"></input>
+              <input type="number" id="max-range" name="max-range" min=1 max=101 class="setRangeForm-textbox challenger-input-fields"></input>
             </section>
             <button id="range-update-button" class="setRangeForm-updateButton">UPDATE</button>
           </section>
@@ -59,7 +59,7 @@
             </section>
           </div>
           <section class="section2-button-list">
-            <button type="button" class="section2-submit-button" id="submit-button">SUBMIT GUESS</button>
+            <button disabled type="button" class="section2-submit-button" id="submit-button">SUBMIT GUESS</button>
             <button class="section2-clear-reset-button">RESET GAME</button>
             <button class="section2-clear-reset-button">CLEAR GAME</button>
           </section>
@@ -105,107 +105,3 @@
   </body>
   <script src="main.js"></script>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <title>Number Guesser</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700&display=swap" rel="stylesheet"/>
-  </head>
-  <body>
-    <header class="body-header-style">
-      <h1 class="header-h1-style">NUMBER<span class="header-h1-light-font">GUESSER</span></h1>
-      <section class="header-section-style">
-        <div class="header-div-style"></div>
-        <h4 class="header-h4-style">ULTIMATE CHALLENGER EDITION</h4>
-        <div class="header-div-style"></div>
-      </section>
-    </header>
-    <main class="full-page-sections">
-      <section class="main-section1-forms">
-        <form class="section1-setrangeform">
-          <h3 class="form-h3-style">Set Range</h3>
-          <section class="setrangeform-rangeforms-plus-button">
-            <section class="setrangeform-rangebox-plus-label">
-              <label for="min-range" class="setRangeForm-label">Min Range</label>
-              <input type="number" id="min-range" name="min-range" min=0 max=100 class="setrangeform-textbox"></input>
-            </section>
-            <section class="setrangeform-rangebox-plus-label">
-              <label for="max-range" class="setRangeForm-label">Max Range</label>
-              <input type="number" id="max-range" name="max-range" min=1 max=101 class="setrangeform-textbox"></input>
-            </section>
-            <button id="range-update-button" class="setrangeform-updatebutton">UPDATE</button>
-          </section>
-        </form>
-        <form class="form2-challenger-forms">
-          <p class="form2-para-currentrange">The Current Range is <span id="current-min" class="min-range-number">1</span> to <span id="current-max" class="max-range-number">100</span></p>
-            <h3 class="form-h3-style">Challenger 1</h3>
-            <section class="challenger1-forms">
-              <div class="challengerform-namebox-plus-label">
-                <label for="challenger1-name" class="challengerform-label">Name</label>
-                <input type="text" id="challenger1-name" name="challenger1-name" class="challengerform-textbox"></input>
-              </div>
-              <div class="challengeform-guessbox-plus-label">
-                <label for="guess-box1" class="setrangeform-label">Guess</label>
-                <input type="number" id="guess-box1" name="guess-box1" class="challengeform-guessbox"></input>
-              </div>
-            </section>
-            <h3 class="form-h3-style">Challenger 2</h3>
-            <section class="challenger1-forms">
-              <div class="challengerform-namebox-plus-label">
-                <label for="challenger2-name" class="challengerform-label">Name</label>
-                <input type="text" id="challenger2-name" name="challenger2-name" class="challengerform-textbox"></input>
-              </div>
-              <div class="challengeform-guessbox-plus-label">
-                <label for="guess-box2" class="setrangeform-label">Guess</label>
-                <input type="number" id="guess-box2" name="guess-box2" class="challengeform-guessbox"></input>
-              </div>
-            </section>
-          <section class="section2-button-list">
-            <button class="section2-submit-button">SUBMIT GUESS</button>
-            <button class="section2-clear-reset-button">RESET GAME</button>
-            <button class="section2-clear-reset-button">CLEAR GAME</button>
-          </section>
-        </form>
-
-        <article class="section1-article-style">
-          <h3 class="article-h3-style">Latest Score</h3>
-          <section class="article-section-guess">
-            <div class="article-challenger-guess">
-              <h4 id="score-challenger1-name" class="h4-challenger-style">Challenger 1 Name</h4>
-              <p class="challenger-paragraph">current guess</p>
-              <p id="score-challenger1-guess" class="challenger1-guess-style">97</p>
-              <p id="too-high-too-low" class="challenger-paragraph">that's too high</p>
-            </div>
-            <div class="challenger-vert-line"></div>
-            <div class="article-challenger-guess">
-              <h4 id="score-challenger2-name" class="h5-challenger-style">Challenger 2 Name</h4>
-              <p class="challenger-paragraph">current guess</p>
-              <p id="score-challenger1-guess" class="challenger1-guess-style">3</p>
-              <p id="too-high-too-low" class="challenger-paragraph">that's too high</p>
-            </div>
-          </section>
-        </article>
-      </section>
-      <section class="main-section2-cards">
-        <article class="section2-card-background">
-          <section class="section2-card-header">
-            <h4 class="card-header-h4">CHALLENGER 1 NAME</h4>
-            <p class="card-header-p">VS</p>
-            <h4 class="card-header-h4">CHALLENGER 2 NAME</h4>
-          </section>
-          <div class="card-div-style"></div>
-            <h1 class="section2-body-h1"><span id="challenger-winner-name">CHALLENGER 1 NAME</span><span class="section2-font-light"> WINNER</span></h1>
-          <div class="card-div-style"></div>
-          <section class="section2-card-footer">
-            <p class="card-footer-p"><span class="section2-font-strong">47 </span>GUESSES</p>
-            <p class="card-footer-p"><span class="section2-font-strong">1.35 </span>MINUTES</p>
-            <button class="card-footer-button">X</button>
-          </section>
-        </article>
-      </section>
-    </main>
-    <script type="text/javascript" src="main.js"></script>
-  </body>
-</html> -->

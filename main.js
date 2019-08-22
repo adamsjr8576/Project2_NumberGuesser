@@ -3,7 +3,7 @@ var maxRangeInput = document.getElementById('max-range');
 var updateRangeButton = document.getElementById('range-update-button');
 var currentRangeMin = document.getElementById('current-min');
 var currentRangeMax = document.getElementById('current-max');
-var randomNum = getRandomNum();
+// var randomNum = getRandomNum();
 
 updateRangeButton.addEventListener('click', updateRange);
 updateRangeButton.addEventListener('click', getRandomNum);
@@ -19,3 +19,5 @@ function getRandomNum() {
   var max = Math.floor(parseInt(maxRangeInput.value));
   return Math.floor(Math.random() * (max - min)) + min;
 };
+
+var randomNum = getRandomNum();

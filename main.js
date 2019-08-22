@@ -18,4 +18,4 @@ function getRandomNum() {
   var min = Math.ceil(parseInt(minRangeInput.value));
   var max = Math.floor(parseInt(maxRangeInput.value));
   return Math.floor(Math.random() * (max - min)) + min;
-}
+};

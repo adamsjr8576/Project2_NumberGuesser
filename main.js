@@ -99,7 +99,7 @@ function onSubmit(event) {
   changeChallengerName(scoreChallengerName2, challenger2NameBox);
   changeWinnerCardName(winnerCardChallenger1, challenger1NameBox);
   changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
-
+  determineWinnerCard();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -125,7 +125,27 @@ var scoreChallengerName2 = document.getElementById("score-challenger2-name");
 
 var winnerCardChallenger1 = document.getElementById('card-challenger1-name');
 var winnerCardChallenger2 = document.getElementById('card-challenger2-name');
+var winnerCardWinner = document.getElementById('challenger-winner-name');
+var winnerCard = document.getElementById('winner-card');
 
 function changeWinnerCardName (winnerCardName, challengerInput) {
   winnerCardName.innerText = challengerInput.value;
 };
+
+function determineWinnerCard() {
+  if (parseInt(challenger1GuessBox.value) === randomNum) {
+    winnerCardWinner.innerText = challenger1NameBox.value;
+    winnerCard.classList.remove('hidden')
+  } else if (parseInt(challenger2GuessBox.value) === randomNum) {
+    winnerCardWinner.innerText = challenger2NameBox.value;
+    winnerCard.classList.remove('hidden')
+  } else {
+    winnerCardWinner.innerText = winnerCardWinner.innerText;
+  }
+}
+
+
+
+// function changeWinnerName() {
+//
+// }

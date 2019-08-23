@@ -298,24 +298,24 @@ button.submit-active {
 }
 
 .main-section2-cards {
-
-  background-color: #404041;
+  background-color: #d0d2d3;
   width: 50%;
   height: 700px;
   padding: 0;
-  border: 1px solid #d0d2d3;
-
+  border: 1px solid #404041;
 }
 
-.section2-card-background {
-
+.section2-card-background-default {
   background-color: white;
   width: 90%;
   height: 25%
   border: 1px solid #d0d2d3;
   margin: 10px auto 7px auto;
   text-align: center;
+}
 
+.hidden {
+  display: none;
 }
 
 .section2-card-header {

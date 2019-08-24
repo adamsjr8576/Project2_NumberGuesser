@@ -186,6 +186,17 @@ button.reset-active {
   border-radius: 20px;
 }
 
+button.clear-active {
+  width: 30%;
+  color: white;
+  background-color: #404041;
+  margin: 0 10px 10px 10px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 100%;
+  border-radius: 20px;
+}
+
 .section1-article-style {
   width: 95%;
   border: 1px solid #d0d2d3;

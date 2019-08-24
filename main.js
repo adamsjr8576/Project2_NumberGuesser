@@ -160,7 +160,6 @@ winnerCloseButton.addEventListener("click", function() {
   winnerCard.classList.add("hidden");
 });
 
-
 //ACTIVATE RESET BUTTON
 
 function addActiveResetState() {
@@ -173,39 +172,6 @@ function activateResetButton() {
     resetButton.disabled = false;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //RESET BUTTON FUNCTIONALITY
 
@@ -231,3 +197,51 @@ function resetButtonFunctionality() {
 resetButton.addEventListener("click", resetButtonFunctionality);
 resetButton.addEventListener("click", getRandomNum);
 resetButton.addEventListener('click', checkNum);
+
+//clear game button functionality
+// make active once all inputs are filled out
+var clearButton = document.getElementById('clear-game-button');
+
+function makeClearActive() {
+  clearButton.classList.add("clear-active");
+}
+
+function activateClearButton() {
+  var numberGoodFields = 0;
+  for (var i = 0; i < guessFields.length; i++) {
+    if (guessFields[i].value !== "") {
+      numberGoodFields++;
+    }
+  }
+  if (numberGoodFields === 6) {
+    makeClearActive();
+    clearButton.disabled = false;
+  }
+}
+
+challenger1NameBox.addEventListener("change", activateClearButton);
+challenger2NameBox.addEventListener("change", activateClearButton);
+challenger1GuessBox.addEventListener("change", activateClearButton);
+challenger2GuessBox.addEventListener("change", activateClearButton);
+
+ // when clear button clicked the guess fields are cleared
+clearButton.addEventListener('click', clearGuess);
+
+function clearGuess() {
+  challenger1GuessBox.value = "";
+  challenger2GuessBox.value = "";
+}
+
+//clear button disables when nothing to be cleared
+
+clearButton.addEventListener("click", disableClearButton);
+
+function disableClearButton() {
+  if (challenger1GuessBox.value === "" && challenger2GuessBox.value === "") {
+    clearButton.disabled = true;
+    clearButton.classList.remove("clear-active");
+  } else {
+    clearButton.disabled = false;
+  }
+}
+

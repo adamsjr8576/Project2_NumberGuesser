@@ -1,6 +1,5 @@
 body {
   font-family: 'Open Sans';
-
 }
 
 .body-header-style {
@@ -40,74 +39,48 @@ body {
 }
 
 .full-page-sections {
-
   display: flex;
-
-
 }
-.main-section1-forms {
 
+.main-section1-forms {
   background-color: #f7f7f7;
   width: 50%;
   height: 700px;
-  padding: 0;
   border: 1px solid #d0d2d3;
-
 }
 
-.section1-setRangeForm {
-
+.section1-setrangeForm {
   background-color: white;
   color: black;
   border: 1px solid #d0d2d3;
   margin: 10px auto 10px auto;
-  /* padding-top: 0%; */
-  height: 16.5%;
   width: 95%;
-  display: block;
-
 }
 
 .form-h3-style {
-
   width: 95%;
-  margin: 10px auto 0 auto;
+  margin: 10px auto 5px auto;
   font-weight: 700;
 }
 
-.setRangeForm-rangeforms-plus-button {
-
+.setrangeform-rangeforms-plus-button {
   display: flex;
-  justify-content: space-between;
-  /* flex-direction: row; */
   width: 95%;
-  align-items: flex-end;
-  margin: 0px auto 10px auto;
-
+  margin: 0px auto 20px auto;
 }
 
-.setRangeForm-rangeBox-plus-label {
-
+.setrangeform-rangebox-plus-label {
   display: flex;
   flex-direction: column;
   width: 37%;
   margin-right: 5%;
 }
 
-.setRangeForm-label {
-
-
-}
-
-.setRangeForm-textbox {
-  width: 100%;
+.setrangeform-textbox {
   font-size: 125%;
-
 }
 
-.setRangeForm-updateButton {
-
-  height: 100%;
+.setrangeform-updatebutton {
   width: 25%;
   color: white;
   background-color: #404041;
@@ -116,23 +89,7 @@ body {
   font-size: 100%;
   font-weight: 700;
   padding: 7px;
-  /* border: 0; */
-}
-
-.section2-para-currentRange {
-  width: 95%;
-  margin: 10px auto 0 auto;
-
-}
-
-.min-range-number {
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.max-range-number {
-  font-weight: 700;
-  text-decoration: underline;
+  border: 0;
 }
 
 .section2-challenger-forms {
@@ -140,59 +97,47 @@ body {
   color: black;
   border: 1px solid #d0d2d3;
   margin: 10px auto 10px auto;
-  /* padding-top: 0%; */
-  /* height: 50%; */
   width: 95%;
-  /* display: block; */
+}
 
+.section2-para-currentrange {
+  width: 95%;
+  margin: 10px auto 15px auto;
+}
 
+.range-number {
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .challenger1-forms {
-
   display: flex;
   justify-content: space-between;
-  /* flex-direction: row; */
   width: 95%;
-  align-items: flex-end;
   margin: 0px auto 10px auto;
-
-
 }
 
-.challengerForm-nameBox-plus-label {
-
-  /* display: flex; */
-  flex-direction: column;
-  /* width: 37%%; */
-
+.challengerform-namebox-plus-label {
+  width: 57%;
 }
 
-.challengerForm-textbox {
-
-  width: 150%;
-  font-size: 125%;
-  margin-bottom: 20px;
-}
-
-.challengeForm-guessBox-plus-label {
-
-  display: flex;
-  flex-direction: column;
-  width: 37%;
-
-  /* margin-right: 5%; */
-}
-
-.challengeForm-guessbox {
-
+.challengerform-textbox {
   width: 100%;
   font-size: 125%;
-  margin-bottom: 20px;
+}
+
+.challengeform-guessbox-plus-label {
+  width: 37%;
+  margin-right: 10px;
+}
+
+.challengeform-guessbox {
+  width: 100%;
+  font-size: 125%;
+  margin-bottom: 25px;
 }
 
 .section2-button-list {
-
   display: flex;
   justify-content: space-around;
 }
@@ -209,8 +154,6 @@ button.submit-active {
 }
 
 .section2-submit-button {
-
-  /* height: 100%; */
   width: 40%;
   color: white;
   background-color: #D0D2D3;
@@ -219,17 +162,13 @@ button.submit-active {
   padding: 7px;
   font-weight: 700;
   font-size: 100%;
-
 }
 
-
-
 .section2-clear-reset-button {
-  /* height: 100%; */
   width: 30%;
   color: white;
   background-color: #d0d2d3;
-  margin: auto 10px 10px 10px;
+  margin: 0 10px 10px 10px;
   padding: 7px;
   font-weight: 700;
   font-size: 100%;
@@ -244,34 +183,13 @@ button.submit-active {
 }
 
 .article-h3-style {
-  width: 40%;
-  margin: 5px 0 5px 3%;
-  /* border: 1px solid blue; */
+  width: 93%;
+  margin: 10px auto 10px auto;
 }
-
-.h5-challenger-style {
-  margin: 0;
-  /* border: 1px solid blue; */
-
-}
-
-
-/* .challenger-vert-line {
-  width: 0;
-  height: 200px;
-  border: 1px solid #d0d2d3;
-  margin: 0 auto 0 auto;
-  position: absolute;
-  top: 80%;
-  left: 27.5%;
-} */
 
 .article-section-guess {
   display: flex;
-  width: 100%;
   margin-bottom: 20px;
-  /* border: 1px solid blue; */
-
 }
 
 .article-challenger-guess {
@@ -279,38 +197,41 @@ button.submit-active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid blue; */
-  margin: 0 5% 0 5%;
 }
 
-.challenger1-guess-style {
+.h4-challenger-style {
+  margin: 0;
+}
+
+.challenger-vert-line {
+  width: 0;
+  height: 150px;
+  border: 1px solid #d0d2d3;
+}
+
+.challenger-guess-style {
   font-size: 400%;
   margin: 0;
   font-weight: 700;
   color: #dd1972;
-  /* border: 1px solid blue; */
-
 }
 
 .challenger-paragraph {
   margin: 0px 10px 0px 10px;
-  /* border: 1px solid blue; */
 }
 
 .main-section2-cards {
   background-color: #d0d2d3;
   width: 50%;
   height: 700px;
-  padding: 0;
   border: 1px solid #404041;
 }
 
-.section2-card-background-default {
+.section2-card-background {
   background-color: white;
   width: 90%;
-  height: 25%
   border: 1px solid #d0d2d3;
-  margin: 10px auto 7px auto;
+  margin: 10px auto 5px auto;
   text-align: center;
 }
 
@@ -319,34 +240,19 @@ button.submit-active {
 }
 
 .section2-card-header {
-
-  margin: auto;
-  height: 25%;
-  width: 100%;
   font-weight: 700;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-
-
 }
 
 .card-header-h4 {
-
-  /* display: inline; */
   margin: auto;
   font-size: 125%;
-
 }
 
 .card-header-p {
-
-  /* display: inline; */
-  /* margin: auto 0px  auto 0px; */
   font-weight: 300;
-  font-size: 85%;
-  /* margin-top: 25px; */
-
+  font-size: 90%;
 }
 
 .card-div-style {
@@ -356,17 +262,16 @@ button.submit-active {
   margin: auto;
 }
 
-
 .section2-body-h1 {
-
   font-size: 300%;
   font-weight: 700;
-  margin: 20px;
+  width: 90%;
+  margin: 15px auto 15px auto;
   display: flex;
   flex-direction: column;
-
 }
-  .section2-card-footer {
+
+.section2-card-footer {
   display: flex;
   justify-content: space-between;
   margin: 0 20px 0 20px;
@@ -375,32 +280,23 @@ button.submit-active {
 
 .card-footer-p {
   font-weight: 300;
-  font-size: 100%;
-  /* margin-bottom: 20px; */
-
+  font-size: 110%;
 }
 
 .card-footer-button {
-
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   background-color: #404041;
   color: #f7f7f7;
-  font-size: 16pt;
+  font-size: 90%;
   font-weight: 300;
-  /* text-align: center; */
-
-
-
 }
 
 .section2-font-strong {
-
   font-weight: 700;
 }
 
 .section2-font-light {
-
   font-weight: 300;
 }

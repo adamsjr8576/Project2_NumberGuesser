@@ -100,6 +100,7 @@ function onSubmit(event) {
   changeWinnerCardName(winnerCardChallenger1, challenger1NameBox);
   changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
   determineWinnerCard();
+  activateResetButton();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -159,6 +160,43 @@ winnerCloseButton.addEventListener("click", function() {
   winnerCard.classList.add("hidden");
 });
 
+//ACTIVATE RESET BUTTON
+
+function addActiveResetState() {
+  resetButton.classList.add("reset-active")
+}
+
+function activateResetButton() {
+  if (winnerCardWinner.innerText !== "WINNER NAME") {
+    addActiveResetState();
+    resetButton.disabled = false;
+  }
+}
+
+//RESET BUTTON FUNCTIONALITY
+
+var resetButton = document.getElementById("reset-button");
+
+function resetButtonFunctionality() {
+  console.log("reset is working")
+  winnerCardChallenger1.innerText = "Challenger 1";
+  winnerCardChallenger2.innerText = "Challenger 2";
+  pinkNumberGuess1.innerText = "?";
+  pinkNumberGuess2.innerText = "?";
+  scoreChallengerName1.innerText = "Challenger 1"
+  scoreChallengerName2.innerText = "Challenger 2"
+  scoreText1.innerText = "Are you close?";
+  scoreText2.innerText = "Are you close?";
+  challenger1GuessBox.value = "";
+  challenger2GuessBox.value = "";
+  challenger1NameBox.value = "";
+  challenger2NameBox.value = "";
+  winnerCard.classList.add("hidden");
+}
+
+resetButton.addEventListener("click", resetButtonFunctionality);
+resetButton.addEventListener("click", getRandomNum);
+resetButton.addEventListener('click', checkNum);
 
 //clear game button functionality
 // make active once all inputs are filled out
@@ -206,3 +244,4 @@ function disableClearButton() {
     clearButton.disabled = false;
   }
 }
+

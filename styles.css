@@ -164,6 +164,17 @@ button.submit-active {
   font-size: 100%;
 }
 
+button.reset-active {
+  width: 30%;
+  color: white;
+  background-color: #404041;
+  border-radius: 20px;
+  margin: auto 10px 10px 10px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 100%;
+}
+
 .section2-clear-reset-button {
   width: 30%;
   color: white;

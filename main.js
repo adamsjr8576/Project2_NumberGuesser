@@ -149,3 +149,12 @@ function determineWinnerCard() {
 // function changeWinnerName() {
 //
 // }
+
+// X button on winner box
+
+var winnerCloseButton = document.getElementById("winnerCloser");
+//var winnerCard = document.getElementById('winner-card'); (this was called earlier)
+
+winnerCloseButton.addEventListener("click", function() {
+  winnerCard.classList.add("hidden");
+});

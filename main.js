@@ -175,6 +175,38 @@ function activateResetButton() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //RESET BUTTON FUNCTIONALITY
 
 var resetButton = document.getElementById("reset-button");

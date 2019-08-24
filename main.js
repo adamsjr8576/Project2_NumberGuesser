@@ -193,3 +193,16 @@ function clearGuess() {
   challenger1GuessBox.value = "";
   challenger2GuessBox.value = "";
 }
+
+//clear button disables when nothing to be cleared
+
+clearButton.addEventListener("click", disableClearButton);
+
+function disableClearButton() {
+  if (challenger1GuessBox.value === "" && challenger2GuessBox.value === "") {
+    clearButton.disabled = true;
+    clearButton.classList.remove("clear-active");
+  } else {
+    clearButton.disabled = false;
+  }
+}

@@ -105,7 +105,7 @@ function onSubmit(event) {
 
 var workingSubmitButton = document.querySelector(".submit-active");
 
-submitButton.addEventListener("click", onSubmit);
+submitButton.addEventListener("click", disableSubmitButton);
 
 //Change pink numbers to match guess, change names to match challenger names
 
@@ -245,3 +245,21 @@ function disableClearButton() {
   }
 }
 
+// submit button won't work unless fields are entered
+
+function disableSubmitButton() {
+  if (parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
+      parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
+      parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
+      parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value) ||
+      challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
+      challenger1GuessBox.value === "" || challenger2GuessBox.value === "") {
+        submitButton.disabled = true;
+        challenger1GuessBox.value = "";
+        challenger2GuessBox.value = "";
+        submitButton.classList.remove("submit-active");
+      } else {
+        submitButton.disabled = false;
+        onSubmit(event);
+      }
+}

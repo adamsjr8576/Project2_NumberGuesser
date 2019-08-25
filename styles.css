@@ -40,12 +40,12 @@ body {
 
 .full-page-sections {
   display: flex;
+  height: 100%;
 }
 
 .main-section1-forms {
   background-color: #f7f7f7;
   width: 50%;
-  height: 700px;
   border: 1px solid #d0d2d3;
 }
 
@@ -114,7 +114,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 95%;
-  margin: 0px auto 30px auto;
+  margin: 0px auto 20px auto;
 }
 
 .challengerform-namebox-plus-label {
@@ -147,7 +147,7 @@ body {
   font-size: 125%;
 }
 
-.challengeform-guessbox-error {
+.challengeform-error {
   border: 4px solid #dd1972;
 }
 
@@ -259,7 +259,6 @@ button.clear-active {
 .main-section2-cards {
   background-color: #d0d2d3;
   width: 50%;
-  height: 700px;
   border: 1px solid #404041;
 }
 

@@ -55,6 +55,7 @@ function updateRange() {
   event.preventDefault(event);
   currentRangeMin.innerText = minRangeInput.value;
   currentRangeMax.innerText = maxRangeInput.value;
+  // minMaxRules();
 };
 
 
@@ -101,7 +102,7 @@ function onSubmit(event) {
   changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
   determineWinnerCard();
   activateResetButton();
-  addErrors()
+  addErrors();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -246,6 +247,48 @@ function disableClearButton() {
   }
 }
 
+//MIN AND MAX rules
+
+function minRules() {
+  if (maxRangeInput.value !== "") {
+    if (minRangeInput.value > maxRangeInput.value) {
+      minRangeInput.style.border = "2px solid #DD1972";
+    }
+    if (minRangeInput.value <= maxRangeInput.value) {
+      minRangeInput.removeAttribute("style");
+    }
+  }
+}
+
+function maxRules() {
+  if (minRangeInput.value !== "") {
+    if (maxRangeInput.value < minRangeInput.value) {
+      maxRangeInput.style.border = "2px solid #DD1972";
+    }
+    if (maxRangeInput.value >= minRangeInput.value) {
+      maxRangeInput.removeAttribute("style");
+    }
+  }
+}
+
+minRangeInput.addEventListener("change", minRules);
+maxRangeInput.addEventListener("change", maxRules);
+
+
+//guessfield rules
+
+// function guessFieldRules() {
+//   if challenger1GuessBox.value > maxRangeInput.value {
+//     challenger1GuessBox.style.border = "1px solid red";
+//   }
+//   if challenger1GuessBox.value < minRangeInput.value {
+//     challenger1GuessBox.style.border = "1px solid red"
+//   }
+//   if challenger1GuessBox.value === "e" {
+//     challenger1GuessBox.style.border = "1px solid red";
+//   }
+// }
+
 // submit button won't work unless fields are entered
 
 var name1Error = document.getElementById('name1-error-message');
@@ -301,3 +344,4 @@ function addNameErrorBorder(challenger, error) {
         error.classList.add('hidden');
       }
 }
+

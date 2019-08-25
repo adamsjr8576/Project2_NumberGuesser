@@ -167,6 +167,17 @@ button.submit-active {
   background-color: #404041;
 }
 
+button.submit-active:hover {
+  width: 40%;
+  color: white;
+  border-radius: 20px;
+  margin: auto 10px 10px 10px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 100%;
+  background-color: #dd1972;
+}
+
 .section2-submit-button {
   width: 40%;
   color: white;
@@ -189,6 +200,17 @@ button.reset-active {
   font-size: 100%;
 }
 
+button.reset-active:hover {
+  width: 30%;
+  color: white;
+  background-color: #dd1972;
+  border-radius: 20px;
+  margin: auto 10px 10px 10px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 100%;
+}
+
 .section2-clear-reset-button {
   width: 30%;
   color: white;
@@ -204,6 +226,17 @@ button.clear-active {
   width: 30%;
   color: white;
   background-color: #404041;
+  margin: 0 10px 10px 10px;
+  padding: 7px;
+  font-weight: 700;
+  font-size: 100%;
+  border-radius: 20px;
+}
+
+button.clear-active:hover {
+  width: 30%;
+  color: white;
+  background-color: #dd1972;
   margin: 0 10px 10px 10px;
   padding: 7px;
   font-weight: 700;

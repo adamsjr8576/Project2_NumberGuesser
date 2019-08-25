@@ -101,11 +101,12 @@ function onSubmit(event) {
   changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
   determineWinnerCard();
   activateResetButton();
+  addErrors()
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
 
-submitButton.addEventListener("click", onSubmit);
+submitButton.addEventListener("click", disableSubmitButton);
 
 //Change pink numbers to match guess, change names to match challenger names
 
@@ -245,3 +246,58 @@ function disableClearButton() {
   }
 }
 
+// submit button won't work unless fields are entered
+
+var name1Error = document.getElementById('name1-error-message');
+var name2Error = document.getElementById('name2-error-message');
+var guess1Error = document.getElementById('guess1-error-message');
+var guess2Error = document.getElementById('guess2-error-message');
+
+
+function disableSubmitButton() {
+  if (parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
+      parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
+      parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
+      parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value) ||
+      challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
+      challenger1GuessBox.value === "" || challenger2GuessBox.value === ""
+      || challenger1GuessBox.value === challenger2GuessBox.value) {
+        submitButton.classList.remove("submit-active");
+        submitButton.disabled = true;
+        addErrors();
+      } else {
+        submitButton.disabled = false;
+        onSubmit(event);
+      }
+}
+
+function addErrors() {
+  addGuessErrorBorder(challenger1GuessBox, guess1Error);
+  addGuessErrorBorder(challenger2GuessBox, guess2Error);
+  addNameErrorBorder(challenger1NameBox, name1Error);
+  addNameErrorBorder(challenger2NameBox, name2Error);
+}
+
+function addGuessErrorBorder(guess, error) {
+  if (parseInt(guess.value) < parseInt(minRangeInput.value) ||
+      parseInt(guess.value) > parseInt(maxRangeInput.value) ||
+      guess.value === "" || guess.value === "" || guess.value === "e"
+      || guess.value === "-" || guess.value === "+" || guess.value === "."
+      || challenger1GuessBox.value === challenger2GuessBox.value) {
+        guess.classList.add('challengeform-error');
+        error.classList.remove('hidden');
+      } else {
+        guess.classList.remove('challengeform-error');
+        error.classList.add('hidden');
+      }
+}
+
+function addNameErrorBorder(challenger, error) {
+  if (challenger.value === "") {
+        challenger.classList.add('challengeform-error');
+        error.classList.remove('hidden');
+      } else {
+        challenger.classList.remove('challengeform-error');
+        error.classList.add('hidden');
+      }
+}

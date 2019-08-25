@@ -137,6 +137,10 @@ body {
   margin-bottom: 25px;
 }
 
+.challengeform-guessbox-error {
+  border: 2px solid #dd1972;
+}
+
 .section2-button-list {
   display: flex;
   justify-content: space-around;

@@ -101,6 +101,7 @@ function onSubmit(event) {
   changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
   determineWinnerCard();
   activateResetButton();
+  addGuessErrorBorder();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -254,12 +255,22 @@ function disableSubmitButton() {
       parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value) ||
       challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
       challenger1GuessBox.value === "" || challenger2GuessBox.value === "") {
-        submitButton.disabled = true;
+        addGuessErrorBorder();
+        submitButton.classList.remove("submit-active");
         challenger1GuessBox.value = "";
         challenger2GuessBox.value = "";
-        submitButton.classList.remove("submit-active");
+        submitButton.disabled = true;
       } else {
         submitButton.disabled = false;
         onSubmit(event);
       }
 }
+
+function addGuessErrorBorder() {
+  if (parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
+      parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value)) {
+        challenger1GuessBox.classList.add('challengeform-guessbox-error')
+      } else {
+        challenger1GuessBox.classList.remove('challengeform-guessbox-error')
+      }
+};

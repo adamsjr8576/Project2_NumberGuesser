@@ -260,7 +260,8 @@ function disableSubmitButton() {
       parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
       parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value) ||
       challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
-      challenger1GuessBox.value === "" || challenger2GuessBox.value === "") {
+      challenger1GuessBox.value === "" || challenger2GuessBox.value === ""
+      || challenger1GuessBox.value === challenger2GuessBox.value) {
         submitButton.classList.remove("submit-active");
         submitButton.disabled = true;
         addErrors();
@@ -280,7 +281,9 @@ function addErrors() {
 function addGuessErrorBorder(guess, error) {
   if (parseInt(guess.value) < parseInt(minRangeInput.value) ||
       parseInt(guess.value) > parseInt(maxRangeInput.value) ||
-      guess.value === "" || guess.value === "" || guess.value === "e") {
+      guess.value === "" || guess.value === "" || guess.value === "e"
+      || guess.value === "-" || guess.value === "+" || guess.value === "."
+      || challenger1GuessBox.value === challenger2GuessBox.value) {
         guess.classList.add('challengeform-error');
         error.classList.remove('hidden');
       } else {

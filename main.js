@@ -101,7 +101,10 @@ function onSubmit(event) {
   changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
   determineWinnerCard();
   activateResetButton();
-  addGuessErrorBorder();
+  addGuessErrorBorder(challenger1GuessBox, guess1Error);
+  addGuessErrorBorder(challenger2GuessBox, guess2Error);
+  addNameErrorBorder(challenger1NameBox, name1Error);
+  addNameErrorBorder(challenger2NameBox, name2Error);
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -248,6 +251,12 @@ function disableClearButton() {
 
 // submit button won't work unless fields are entered
 
+var name1Error = document.getElementById('name1-error-message');
+var name2Error = document.getElementById('name2-error-message');
+var guess1Error = document.getElementById('guess1-error-message');
+var guess2Error = document.getElementById('guess2-error-message');
+
+
 function disableSubmitButton() {
   if (parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
       parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
@@ -255,10 +264,11 @@ function disableSubmitButton() {
       parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value) ||
       challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
       challenger1GuessBox.value === "" || challenger2GuessBox.value === "") {
-        addGuessErrorBorder();
+        addGuessErrorBorder(challenger1GuessBox, guess1Error);
+        addGuessErrorBorder(challenger2GuessBox, guess2Error);
+        addNameErrorBorder(challenger1NameBox, name1Error);
+        addNameErrorBorder(challenger2NameBox, name2Error);
         submitButton.classList.remove("submit-active");
-        challenger1GuessBox.value = "";
-        challenger2GuessBox.value = "";
         submitButton.disabled = true;
       } else {
         submitButton.disabled = false;
@@ -266,11 +276,24 @@ function disableSubmitButton() {
       }
 }
 
-function addGuessErrorBorder() {
-  if (parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
-      parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value)) {
-        challenger1GuessBox.classList.add('challengeform-guessbox-error')
+function addGuessErrorBorder(guess, error) {
+  if (parseInt(guess.value) < parseInt(minRangeInput.value) ||
+      parseInt(guess.value) > parseInt(maxRangeInput.value) ||
+      guess.value === "" || guess.value === "" || guess.value === "e") {
+        guess.classList.add('challengeform-guessbox-error');
+        error.classList.remove('hidden');
       } else {
-        challenger1GuessBox.classList.remove('challengeform-guessbox-error')
+        guess.classList.remove('challengeform-guessbox-error');
+        error.classList.add('hidden');
       }
-};
+}
+
+function addNameErrorBorder(challenger, error) {
+  if (challenger.value === "") {
+        challenger.classList.add('challengeform-guessbox-error');
+        error.classList.remove('hidden');
+      } else {
+        challenger.classList.remove('challengeform-guessbox-error');
+        error.classList.add('hidden');
+      }
+}

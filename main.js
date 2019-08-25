@@ -251,7 +251,7 @@ function disableClearButton() {
 function minRules() {
   if (maxRangeInput.value !== "") {
     if (minRangeInput.value > maxRangeInput.value) {
-      minRangeInput.style.border = "1px solid #DD1972";
+      minRangeInput.style.border = "2px solid #DD1972";
     }
     if (minRangeInput.value <= maxRangeInput.value) {
       minRangeInput.removeAttribute("style");
@@ -262,7 +262,7 @@ function minRules() {
 function maxRules() {
   if (minRangeInput.value !== "") {
     if (maxRangeInput.value < minRangeInput.value) {
-      maxRangeInput.style.border = "1px solid #DD1972";
+      maxRangeInput.style.border = "2px solid #DD1972";
     }
     if (maxRangeInput.value >= minRangeInput.value) {
       maxRangeInput.removeAttribute("style");

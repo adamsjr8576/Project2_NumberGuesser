@@ -126,11 +126,6 @@ var scoreChallengerName2 = document.getElementById("score-challenger2-name");
 
 //Winner card display!!!
 
-var winnerCardChallenger1 = document.getElementById('card-challenger1-name');
-var winnerCardChallenger2 = document.getElementById('card-challenger2-name');
-var winnerCardWinner = document.getElementById('challenger-winner-name');
-var winnerCard = document.querySelector('.section2-card-background');
-
 function determineWinnerCard() {
   if (parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) {
     addWinnerCard();
@@ -376,15 +371,32 @@ var name2Error = document.getElementById('name2-error-message');
 var guess1Error = document.getElementById('guess1-error-message');
 var guess2Error = document.getElementById('guess2-error-message');
 
+function checkInputRange() {
+  var guessErrors = parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
+  parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
+  parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
+  parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value);
+  return guessErrors;
+}
+
+function checkInputContent() {
+  var contentErrors = challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
+  challenger1GuessBox.value === "" || challenger2GuessBox.value === ""
+  || challenger1GuessBox.value === challenger2GuessBox.value;
+  return contentErrors;
+}
+
+function checkGuessParameters(guess) {
+  var guessParameter = parseInt(guess.value) < parseInt(minRangeInput.value) ||
+      parseInt(guess.value) > parseInt(maxRangeInput.value) ||
+      guess.value === "" || guess.value === "" || guess.value === "e"
+      || guess.value === "-" || guess.value === "+" || guess.value === "."
+      || challenger1GuessBox.value === challenger2GuessBox.value;
+  return guessParameter;
+}
 
 function disableSubmitButton() {
-  if (parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
-      parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
-      parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
-      parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value) ||
-      challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
-      challenger1GuessBox.value === "" || challenger2GuessBox.value === ""
-      || challenger1GuessBox.value === challenger2GuessBox.value) {
+  if (checkInputRange() || checkInputContent()) {
         submitButton.classList.remove("submit-active");
         submitButton.disabled = true;
         addErrors();
@@ -402,11 +414,7 @@ function addErrors() {
 }
 
 function addGuessErrorBorder(guess, error) {
-  if (parseInt(guess.value) < parseInt(minRangeInput.value) ||
-      parseInt(guess.value) > parseInt(maxRangeInput.value) ||
-      guess.value === "" || guess.value === "" || guess.value === "e"
-      || guess.value === "-" || guess.value === "+" || guess.value === "."
-      || challenger1GuessBox.value === challenger2GuessBox.value) {
+  if (checkGuessParameters(guess)) {
         guess.classList.add('challengeform-error');
         error.classList.remove('hidden');
       } else {
@@ -439,7 +447,7 @@ newWinnerCard.innerHTML = `<section class='section2-card-header'>
   <h4 id='card-challenger2-name' class='card-header-h4'>${challenger2NameBox.value}</h4>
 </section>
 <div class='card-div-style'></div>
-  <h1 class='section2-body-h1'><span id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
+  <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
 <div class='card-div-style'></div>
 <section class='section2-card-footer'>
   <p class='card-footer-p'><span class='section2-font-strong'>47 </span>GUESSES</p>

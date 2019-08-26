@@ -83,7 +83,31 @@ body {
 .setrangeform-updatebutton {
   width: 25%;
   color: white;
+  background-color: #D0D2D3;
+  border-radius: 20px;
+  margin: auto 10px 0 10px;
+  font-size: 100%;
+  font-weight: 700;
+  padding: 7px;
+  border: 0;
+}
+
+button.updatebutton-active {
+  width: 25%;
+  color: white;
   background-color: #404041;
+  border-radius: 20px;
+  margin: auto 10px 0 10px;
+  font-size: 100%;
+  font-weight: 700;
+  padding: 7px;
+  border: 0;
+}
+
+button.updatebutton-active:hover {
+  width: 25%;
+  color: white;
+  background-color: #dd1972;
   border-radius: 20px;
   margin: auto 10px 0 10px;
   font-size: 100%;

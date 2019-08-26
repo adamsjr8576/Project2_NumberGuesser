@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Open Sans';
 }
@@ -73,7 +79,7 @@ body {
 .setrangeform-rangebox-plus-label {
   display: flex;
   flex-direction: column;
-  width: 37%;
+  width: 30%;
   margin-right: 5%;
 }
 

@@ -1,3 +1,4 @@
+
 // All four fields add active state
 
 var submitButton = document.querySelector("#submit-button");
@@ -98,9 +99,8 @@ function onSubmit(event) {
   changePinkNumberGuess(pinkNumberGuess2, challenger2GuessBox);
   changeChallengerName(scoreChallengerName1, challenger1NameBox);
   changeChallengerName(scoreChallengerName2, challenger2NameBox);
-  changeWinnerCardName(winnerCardChallenger1, challenger1NameBox);
-  changeWinnerCardName(winnerCardChallenger2, challenger2NameBox);
   determineWinnerCard();
+  determineWinnerName()
   activateResetButton();
   addErrors();
 }
@@ -129,22 +129,20 @@ var scoreChallengerName2 = document.getElementById("score-challenger2-name");
 var winnerCardChallenger1 = document.getElementById('card-challenger1-name');
 var winnerCardChallenger2 = document.getElementById('card-challenger2-name');
 var winnerCardWinner = document.getElementById('challenger-winner-name');
-var winnerCard = document.getElementById('winner-card');
-
-function changeWinnerCardName (winnerCardName, challengerInput) {
-  winnerCardName.innerText = challengerInput.value;
-};
+var winnerCard = document.querySelector('.section2-card-background');
 
 function determineWinnerCard() {
-  if (parseInt(challenger1GuessBox.value) === randomNum) {
-    winnerCardWinner.innerText = challenger1NameBox.value;
-    winnerCard.classList.remove('hidden')
-  } else if (parseInt(challenger2GuessBox.value) === randomNum) {
-    winnerCardWinner.innerText = challenger2NameBox.value;
-    winnerCard.classList.remove('hidden')
-  } else {
-    winnerCardWinner.innerText = winnerCardWinner.innerText;
+  if (parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) {
+    addWinnerCard();
+    }
   }
+
+function determineWinnerName() {
+  if (parseInt(challenger1GuessBox.value) === randomNum) {
+    return challenger1NameBox.value;
+} else if (parseInt(challenger2GuessBox.value) === randomNum) {
+    return challenger2NameBox.value;
+}
 }
 
 
@@ -155,12 +153,12 @@ function determineWinnerCard() {
 
 // X button on winner box
 
-var winnerCloseButton = document.getElementById("winnerCloser");
+// var winnerCloseButton = document.getElementById("winnerCloser");
 //var winnerCard = document.getElementById('winner-card'); (this was called earlier)
 
-winnerCloseButton.addEventListener("click", function() {
-  winnerCard.classList.add("hidden");
-});
+// winnerCloseButton.addEventListener("click", function() {
+//   winnerCard.classList.add("hidden");
+// });
 
 //ACTIVATE RESET BUTTON
 
@@ -169,7 +167,7 @@ function addActiveResetState() {
 }
 
 function activateResetButton() {
-  if (winnerCardWinner.innerText !== "WINNER NAME") {
+  if (scoreText1.innerText === "BOOM!" || scoreText2.innerText === "BOOM!") {
     addActiveResetState();
     resetButton.disabled = false;
   }
@@ -181,8 +179,6 @@ var resetButton = document.getElementById("reset-button");
 
 function resetButtonFunctionality() {
   console.log("reset is working")
-  winnerCardChallenger1.innerText = "Challenger 1";
-  winnerCardChallenger2.innerText = "Challenger 2";
   pinkNumberGuess1.innerText = "?";
   pinkNumberGuess2.innerText = "?";
   scoreChallengerName1.innerText = "Challenger 1"
@@ -193,7 +189,6 @@ function resetButtonFunctionality() {
   challenger2GuessBox.value = "";
   challenger1NameBox.value = "";
   challenger2NameBox.value = "";
-  winnerCard.classList.add("hidden");
 }
 
 resetButton.addEventListener("click", resetButtonFunctionality);
@@ -428,4 +423,27 @@ function addNameErrorBorder(challenger, error) {
         challenger.classList.remove('challengeform-error');
         error.classList.add('hidden');
       }
+}
+
+
+//Creating new winner card in JS
+
+function addWinnerCard() {
+var newWinnerCardParent = document.getElementById('winner-card-section');
+var newWinnerCard = document.createElement('article');
+newWinnerCard.className = 'section2-card-background';
+newWinnerCardParent.appendChild(newWinnerCard);
+newWinnerCard.innerHTML = `<section class='section2-card-header'>
+  <h4 id='card-challenger1-name' class='card-header-h4'>${challenger1NameBox.value}</h4>
+  <p class='card-header-p'>VS</p>
+  <h4 id='card-challenger2-name' class='card-header-h4'>${challenger2NameBox.value}</h4>
+</section>
+<div class='card-div-style'></div>
+  <h1 class='section2-body-h1'><span id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
+<div class='card-div-style'></div>
+<section class='section2-card-footer'>
+  <p class='card-footer-p'><span class='section2-font-strong'>47 </span>GUESSES</p>
+  <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
+  <button class='card-footer-button' id = winnerCloser>X</button>
+</section>`;
 }

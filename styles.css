@@ -9,7 +9,7 @@ body {
   align-items: center;
 }
 
-.header-h1-style{
+.header-h1-style {
   color: #DD1972;
   margin: 20px 0 0 0;
   font-size: 300%;
@@ -30,6 +30,7 @@ body {
   margin: 0 0 20px 0;
   font-weight: 300;
   margin: auto 5px auto 5px;
+  text-align: center;
 }
 
 .header-div-style {
@@ -81,7 +82,7 @@ body {
 }
 
 .setrangeform-updatebutton {
-  width: 25%;
+  width: 30%;
   color: white;
   background-color: #404041;
   border-radius: 20px;
@@ -270,6 +271,7 @@ button.clear-active:hover {
 
 .h4-challenger-style {
   margin: 0;
+  text-align: center;
 }
 
 .challenger-vert-line {
@@ -367,4 +369,22 @@ button.clear-active:hover {
 
 .section2-font-light {
   font-weight: 300;
+}
+
+@media screen and (max-width: 550px) {
+  .full-page-sections {
+    flex-direction: column;
+  }
+  .main-section1-forms {
+    width: 100%;
+  }
+  .main-section2-cards {
+    width: 100%;
+  }
+  .header-h1-style {
+    font-size: 200%;
+  }
+  .header-div-style {
+    width: 45px;
+  }
 }

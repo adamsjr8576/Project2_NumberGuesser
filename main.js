@@ -249,13 +249,23 @@ function disableClearButton() {
 
 //MIN AND MAX rules
 
+//need to make it so that ranges don't update when number is wrong
+//refactor using ||
+
+var minRangeError = document.getElementById("min-range-error-message")
+var maxRangeError = document.getElementById("max-range-error-message")
+
 function minRules() {
   if (maxRangeInput.value !== "") {
     if (minRangeInput.value > maxRangeInput.value) {
-      minRangeInput.style.border = "2px solid #DD1972";
+      // minRangeInput.style.border = "2px solid #DD1972";
+      minRangeInput.classList.add("challengeform-error");
+      minRangeError.classList.remove("hidden");
     }
     if (minRangeInput.value <= maxRangeInput.value) {
-      minRangeInput.removeAttribute("style");
+      // minRangeInput.removeAttribute("style");
+      minRangeInput.classList.remove("challengeform-error");
+      minRangeError.classList.add("hidden");
     }
   }
 }
@@ -263,16 +273,23 @@ function minRules() {
 function maxRules() {
   if (minRangeInput.value !== "") {
     if (maxRangeInput.value < minRangeInput.value) {
-      maxRangeInput.style.border = "2px solid #DD1972";
+      // maxRangeInput.style.border = "2px solid #DD1972";
+      maxRangeInput.classList.add("challengeform-error");
+      maxRangeError.classList.remove("hidden");
     }
     if (maxRangeInput.value >= minRangeInput.value) {
-      maxRangeInput.removeAttribute("style");
+      // maxRangeInput.removeAttribute("style");
+      maxRangeInput.classList.remove("challengeform-error");
+      maxRangeError.classList.add("hidden");
     }
   }
 }
 
-minRangeInput.addEventListener("change", minRules);
-maxRangeInput.addEventListener("change", maxRules);
+// minRangeInput.addEventListener("change", minRules);
+// maxRangeInput.addEventListener("change", maxRules);
+
+updateRangeButton.addEventListener("click", minRules);
+updateRangeButton.addEventListener("click", maxRules);
 
 
 //guessfield rules
@@ -344,4 +361,3 @@ function addNameErrorBorder(challenger, error) {
         error.classList.add('hidden');
       }
 }
-

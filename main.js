@@ -1,7 +1,7 @@
 // All four fields add active state
 
 var submitButton = document.querySelector("#submit-button");
-var guessFields = document.querySelectorAll(".challenger-input-fields")
+var guessFields = document.querySelectorAll(".challenger-input-fields");
 
 function addActiveState() {
   submitButton.classList.add("submit-active");
@@ -252,45 +252,113 @@ function disableClearButton() {
 //need to make it so that ranges don't update when number is wrong
 //refactor using ||
 
-var minRangeError = document.getElementById("min-range-error-message")
-var maxRangeError = document.getElementById("max-range-error-message")
+var minRangeError = document.getElementById("min-range-error-message");
+var maxRangeError = document.getElementById("max-range-error-message");
+
+function minDonts() {
+  var minDontsList = parseInt(minRangeInput.value) !== "" &&
+  parseInt(maxRangeInput.value) < parseInt(minRangeInput.value) ||
+  minRangeInput.value === "e" ||
+  minRangeInput.value === "-" ||
+  minRangeInput.value === "+" ||
+  minRangeInput.value === ".";
+  return minDontsList;
+}
 
 function minRules() {
-  if (maxRangeInput.value !== "") {
-    if (minRangeInput.value > maxRangeInput.value) {
-      // minRangeInput.style.border = "2px solid #DD1972";
-      minRangeInput.classList.add("challengeform-error");
-      minRangeError.classList.remove("hidden");
-    }
-    if (minRangeInput.value <= maxRangeInput.value) {
-      // minRangeInput.removeAttribute("style");
-      minRangeInput.classList.remove("challengeform-error");
-      minRangeError.classList.add("hidden");
-    }
+  if (minDonts()) {
+    minRangeInput.classList.add("challengeform-error");
+    minRangeError.classList.remove("hidden");
+    updateRangeButton.disabled = true;
+  } else {
+    minRangeInput.classList.remove("challengeform-error");
+    minRangeError.classList.add("hidden");
+    updateRangeButton.classList.add("updatebutton-active")
+    updateRangeButton.disabled = false;
   }
+}
+
+// function minRules() {
+//   if (maxRangeInput.value !== "") {
+//     if (minRangeInput.value > maxRangeInput.value) {
+//       minRangeInput.classList.add("challengeform-error");
+//       minRangeError.classList.remove("hidden");
+//     }
+//     if (minRangeInput.value <= maxRangeInput.value) {
+//       minRangeInput.classList.remove("challengeform-error");
+//       minRangeError.classList.add("hidden");
+//     }
+//   }
+// }
+
+function maxDonts() {
+  var maxDontsList = parseInt(maxRangeInput.value) !== "" &&
+  parseInt(minRangeInput.value) > parseInt(maxRangeInput.value) ||
+  maxRangeInput.value === "e" ||
+  maxRangeInput.value === "-" ||
+  maxRangeInput.value === "+" ||
+  maxRangeInput.value === ".";
+  return maxDontsList;
 }
 
 function maxRules() {
-  if (minRangeInput.value !== "") {
-    if (maxRangeInput.value < minRangeInput.value) {
-      // maxRangeInput.style.border = "2px solid #DD1972";
-      maxRangeInput.classList.add("challengeform-error");
-      maxRangeError.classList.remove("hidden");
-    }
-    if (maxRangeInput.value >= minRangeInput.value) {
-      // maxRangeInput.removeAttribute("style");
-      maxRangeInput.classList.remove("challengeform-error");
-      maxRangeError.classList.add("hidden");
-    }
+  if (maxDonts()) {
+    maxRangeInput.classList.add("challengeform-error");
+    maxRangeError.classList.remove("hidden");
+    updateRangeButton.disabled = true;
+  } else {
+    maxRangeInput.classList.remove("challengeform-error");
+    maxRangeError.classList.add("hidden");
+    updateRangeButton.classList.add("updatebutton-active")
+    updateRangeButton.disabled = false;
   }
 }
 
-// minRangeInput.addEventListener("change", minRules);
-// maxRangeInput.addEventListener("change", maxRules);
+// function maxRules() {
+//   if (minRangeInput.value !== "") {
+//     if (maxRangeInput.value < minRangeInput.value) {
+//       // maxRangeInput.style.border = "2px solid #DD1972";
+//       maxRangeInput.classList.add("challengeform-error");
+//       maxRangeError.classList.remove("hidden");
+//     }
+//     if (maxRangeInput.value >= minRangeInput.value) {
+//       // maxRangeInput.removeAttribute("style");
+//       maxRangeInput.classList.remove("challengeform-error");
+//       maxRangeError.classList.add("hidden");
+//     }
+//   }
+// }
 
-updateRangeButton.addEventListener("click", minRules);
-updateRangeButton.addEventListener("click", maxRules);
+minRangeInput.addEventListener("blur", minRules);
+maxRangeInput.addEventListener("blur", maxRules);
 
+// updateRangeButton.addEventListener("click", minRules);
+// updateRangeButton.addEventListener("click", maxRules);
+
+// UPDATE BUTTON DOESN"T UPDATE RANGE
+
+var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
+
+function deActiveUpdate() {
+  updateRangeButton.classList.remove("updatebutton-active");
+}
+
+function updateButtonReady() {
+  var badUpdateFields = 0;
+  for (var i = 0; i < bothRangeFields.length; i++) {
+    if (maxDonts() || minDonts()) {
+      badUpdateFields++;
+      console.log(badUpdateFields);
+    }
+  }
+  if (badUpdateFields !== 0) {
+      deActiveUpdate();
+      updateRangeButton.disabled = true;
+    }
+  }
+
+  minRangeInput.addEventListener("blur", updateButtonReady);
+  maxRangeInput.addEventListener("blur", updateButtonReady);
 
 //guessfield rules
 

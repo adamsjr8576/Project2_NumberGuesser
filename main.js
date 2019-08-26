@@ -256,40 +256,68 @@ var minRangeError = document.getElementById("min-range-error-message")
 var maxRangeError = document.getElementById("max-range-error-message")
 
 function minRules() {
-  if (maxRangeInput.value !== "") {
-    if (minRangeInput.value > maxRangeInput.value) {
-      // minRangeInput.style.border = "2px solid #DD1972";
-      minRangeInput.classList.add("challengeform-error");
-      minRangeError.classList.remove("hidden");
-    }
-    if (minRangeInput.value <= maxRangeInput.value) {
-      // minRangeInput.removeAttribute("style");
-      minRangeInput.classList.remove("challengeform-error");
-      minRangeError.classList.add("hidden");
-    }
+  if (parseInt(maxRangeInput.value) !== "" &&
+  parseInt(minRangeInput.value) > parseInt(maxRangeInput.value) ||
+  maxRangeInput.value === "e" ||
+  maxRangeInput.value === "-" ||
+  maxRangeInput.value === "+" ||
+  maxRangeInput.value === ".") {
+    minRangeInput.classList.add("challengeform-error");
+    minRangeError.classList.remove("hidden");
+  } else {
+    minRangeInput.classList.remove("challengeform-error");
+    minRangeError.classList.add("hidden");
   }
 }
+
+// function minRules() {
+//   if (maxRangeInput.value !== "") {
+//     if (minRangeInput.value > maxRangeInput.value) {
+//       minRangeInput.classList.add("challengeform-error");
+//       minRangeError.classList.remove("hidden");
+//     }
+//     if (minRangeInput.value <= maxRangeInput.value) {
+//       minRangeInput.classList.remove("challengeform-error");
+//       minRangeError.classList.add("hidden");
+//     }
+//   }
+// }
 
 function maxRules() {
-  if (minRangeInput.value !== "") {
-    if (maxRangeInput.value < minRangeInput.value) {
-      // maxRangeInput.style.border = "2px solid #DD1972";
-      maxRangeInput.classList.add("challengeform-error");
-      maxRangeError.classList.remove("hidden");
-    }
-    if (maxRangeInput.value >= minRangeInput.value) {
-      // maxRangeInput.removeAttribute("style");
-      maxRangeInput.classList.remove("challengeform-error");
-      maxRangeError.classList.add("hidden");
-    }
+  if (parseInt(minRangeInput.value) !== "" &&
+  parseInt(maxRangeInput.value) < parseInt(minRangeInput.value)||
+  minRangeInput.value === "e" ||
+  minRangeInput.value === "-" ||
+  minRangeInput.value === "+" ||
+  minRangeInput.value === ".") {
+    maxRangeInput.classList.add("challengeform-error");
+    maxRangeError.classList.remove("hidden");
+  } else {
+    maxRangeInput.classList.remove("challengeform-error");
+    maxRangeError.classList.add("hidden");
   }
 }
 
-// minRangeInput.addEventListener("change", minRules);
-// maxRangeInput.addEventListener("change", maxRules);
+// function maxRules() {
+//   if (minRangeInput.value !== "") {
+//     if (maxRangeInput.value < minRangeInput.value) {
+//       // maxRangeInput.style.border = "2px solid #DD1972";
+//       maxRangeInput.classList.add("challengeform-error");
+//       maxRangeError.classList.remove("hidden");
+//     }
+//     if (maxRangeInput.value >= minRangeInput.value) {
+//       // maxRangeInput.removeAttribute("style");
+//       maxRangeInput.classList.remove("challengeform-error");
+//       maxRangeError.classList.add("hidden");
+//     }
+//   }
+// }
 
-updateRangeButton.addEventListener("click", minRules);
-updateRangeButton.addEventListener("click", maxRules);
+minRangeInput.addEventListener("blur", minRules);
+maxRangeInput.addEventListener("blur", maxRules);
+
+// updateRangeButton.addEventListener("click", minRules);
+// updateRangeButton.addEventListener("click", maxRules);
 
 
 //guessfield rules

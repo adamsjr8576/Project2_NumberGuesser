@@ -315,86 +315,12 @@ function maxRules() {
     console.log("hello again hello");
   }
 }
-// function minDonts() {
-//   var minDontsList = parseInt(minRangeInput.value) !== "" &&
-//   (parseInt(maxRangeInput.value) < parseInt(minRangeInput.value) ||
-//   minRangeInput.value === "e" ||
-//   minRangeInput.value === "-" ||
-//   minRangeInput.value === "+" ||
-//   minRangeInput.value === ".");
-//   return minDontsList;
-// }
-//
-// function minRules() {
-//   if (minDonts()) {
-//     minRangeInput.classList.add("challengeform-error");
-//     minRangeError.classList.remove("hidden");
-//     updateRangeButton.disabled = true;
-//   } else {
-//     minRangeInput.classList.remove("challengeform-error");
-//     minRangeError.classList.add("hidden");
-//     updateRangeButton.classList.add("updatebutton-active")
-//     updateRangeButton.disabled = false;
-//   }
-// }
-
-// function minRules() {
-//   if (maxRangeInput.value !== "") {
-//     if (minRangeInput.value > maxRangeInput.value) {
-//       minRangeInput.classList.add("challengeform-error");
-//       minRangeError.classList.remove("hidden");
-//     }
-//     if (minRangeInput.value <= maxRangeInput.value) {
-//       minRangeInput.classList.remove("challengeform-error");
-//       minRangeError.classList.add("hidden");
-//     }
-//   }
-// }
-
-// function maxDonts() {
-//   var maxDontsList = parseInt(maxRangeInput.value) !== "" &&
-//   (parseInt(minRangeInput.value) > parseInt(maxRangeInput.value) || maxRangeInput.value === "e" ||
-//   maxRangeInput.value === "-" ||
-//   maxRangeInput.value === "+" ||
-//   maxRangeInput.value === ".");
-//   return maxDontsList;
-// }
-//
-// function maxRules() {
-//   if (maxDonts()) {
-//     maxRangeInput.classList.add("challengeform-error");
-//     maxRangeError.classList.remove("hidden");
-//     updateRangeButton.disabled = true;
-//   } else {
-//     maxRangeInput.classList.remove("challengeform-error");
-//     maxRangeError.classList.add("hidden");
-//     updateRangeButton.classList.add("updatebutton-active")
-//     updateRangeButton.disabled = false;
-//   }
-// }
-
-// function maxRules() {
-//   if (minRangeInput.value !== "") {
-//     if (maxRangeInput.value < minRangeInput.value) {
-//       // maxRangeInput.style.border = "2px solid #DD1972";
-//       maxRangeInput.classList.add("challengeform-error");
-//       maxRangeError.classList.remove("hidden");
-//     }
-//     if (maxRangeInput.value >= minRangeInput.value) {
-//       // maxRangeInput.removeAttribute("style");
-//       maxRangeInput.classList.remove("challengeform-error");
-//       maxRangeError.classList.add("hidden");
-//     }
-//   }
-// }
 
 minRangeInput.addEventListener("blur", minRules);
 maxRangeInput.addEventListener("blur", maxRules);
 
-// updateRangeButton.addEventListener("click", minRules);
-// updateRangeButton.addEventListener("click", maxRules);
 
-// UPDATE BUTTON DOESN"T UPDATE RANGE
+// TRIGGER FOR UPDATE BUTTON ACTIVE
 
 var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
 
@@ -415,21 +341,7 @@ function updateButtonReady() {
       deActiveUpdate();
     }
   }
-//
-// function updateButtonReady() {
-//   var goodUpdateFields = 0;
-//   for (var i = 0; i < bothRangeFields.length; i++) {
-//     if (isMinGood() && isMaxGood()) {
-//       goodUpdateFields++;
-//       console.log(goodUpdateFields);
-//     }
-//   }
-//   if (goodUpdateFields === 1) {
-//       activeUpdate();
-//   } else {
-//       deActiveUpdate();
-//     }
-//   }
+
 
   minRangeInput.addEventListener("blur", updateButtonReady);
   maxRangeInput.addEventListener("blur", updateButtonReady);
@@ -521,7 +433,7 @@ function resetGuessCount() {
 //succesful win range increases and decreases to get larger
 
 function increaseRange() {
-  if ((parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) 
+  if ((parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum)
       && parseInt(minRangeInput.value) > 10) {
       var newMin = parseInt(minRangeInput.value) - 10;
       minRangeInput.value = newMin;
@@ -538,22 +450,45 @@ function increaseRange() {
 
 //Creating new winner card in JS
 
+
 function addWinnerCard() {
 var newWinnerCardParent = document.getElementById('winner-card-section');
-var newWinnerCard = document.createElement('article');
-newWinnerCard.className = 'section2-card-background';
-newWinnerCardParent.appendChild(newWinnerCard);
-newWinnerCard.innerHTML = `<section class='section2-card-header'>
-  <h4 id='card-challenger1-name' class='card-header-h4'>${challenger1NameBox.value}</h4>
-  <p class='card-header-p'>VS</p>
-  <h4 id='card-challenger2-name' class='card-header-h4'>${challenger2NameBox.value}</h4>
-</section>
-<div class='card-div-style'></div>
-  <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
-<div class='card-div-style'></div>
-<section class='section2-card-footer'>
-  <p class='card-footer-p'><span class='section2-font-strong'>${countChallengerGuess()}</span>  GUESSES</p>
-  <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
-  <button class='card-footer-button' id = winnerCloser>X</button>
-</section>`;
+newWinnerCardParent.innerHTML += `
+<article class="section2-card-background">
+  <section class='section2-card-header'>
+    <h4 id='card-challenger1-name' class='card-header-h4'>${challenger1NameBox.value}</h4>
+    <p class='card-header-p'>VS</p>
+    <h4 id='card-challenger2-name' class='card-header-h4'>${challenger2NameBox.value}</h4>
+  </section>
+  <div class='card-div-style'></div>
+    <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
+  <div class='card-div-style'></div>
+  <section class='section2-card-footer'>
+    <p class='card-footer-p'><span class='section2-font-strong'>${countChallengerGuess()}</span>  GUESSES</p>
+    <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
+    <button class='card-footer-button' id='winnerCloser'>X</button>
+  </section>
+</article>`;
 }
+
+//WINNER CARD X box
+
+var winnerCardParent = document.getElementById("winner-card-section");
+
+winnerCardParent.addEventListener("click", deleteWinnerCard);
+
+function deleteWinnerCard(event) {
+  if (event.target.classList.contains("card-footer-button")) {
+    event.target.parentNode.parentNode.remove();
+  }
+}
+
+
+// X button on winner box
+
+// var winnerCloseButton = document.getElementById("winnerCloser");
+//var winnerCard = document.getElementById('winner-card'); (this was called earlier)
+
+// winnerCloseButton.addEventListener("click", function() {
+//   winnerCard.classList.add("hidden");
+// });

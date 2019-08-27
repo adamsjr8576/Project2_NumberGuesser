@@ -248,28 +248,95 @@ function disableClearButton() {
 var minRangeError = document.getElementById("min-range-error-message");
 var maxRangeError = document.getElementById("max-range-error-message");
 
-function minDonts() {
-  var minDontsList = parseInt(minRangeInput.value) !== "" &&
-  parseInt(maxRangeInput.value) < parseInt(minRangeInput.value) ||
-  minRangeInput.value === "e" ||
-  minRangeInput.value === "-" ||
-  minRangeInput.value === "+" ||
-  minRangeInput.value === ".";
-  return minDontsList;
+function isMinGood() {
+  var minGoodList =
+    // minRangeInput.value !== "" &&
+    // maxRangeInput.value !== "" &&
+    parseInt(maxRangeInput.value) > parseInt(minRangeInput.value) &&
+    minRangeInput.value !== "e" &&
+    minRangeInput.value !== "-" &&
+    minRangeInput.value !== "+" &&
+    minRangeInput.value !== ".";
+    console.log(minGoodList, minRangeInput.value);
+
+    return minGoodList;
 }
 
 function minRules() {
-  if (minDonts()) {
-    minRangeInput.classList.add("challengeform-error");
-    minRangeError.classList.remove("hidden");
-    updateRangeButton.disabled = true;
-  } else {
+  if (isMinGood()) {
     minRangeInput.classList.remove("challengeform-error");
     minRangeError.classList.add("hidden");
     updateRangeButton.classList.add("updatebutton-active")
     updateRangeButton.disabled = false;
+  } else if (maxRangeInput.value === "" || minRangeInput.value === ""){
+    maxRangeInput.classList.remove("challengeform-error");
+    maxRangeError.classList.add("hidden");
+    updateRangeButton.classList.remove("updatebutton-active")
+    updateRangeButton.disabled = true;
+    console.log("yes I'm here")
+  } else {
+    minRangeInput.classList.add("challengeform-error");
+    minRangeError.classList.remove("hidden");
+    updateRangeButton.classList.remove("updatebutton-active")
+    updateRangeButton.disabled = true;
+    console.log("just called to say hello");
   }
 }
+
+function isMaxGood() {
+  var maxGoodList =
+  // maxRangeInput.value !== "" &&
+  // minRangeInput.value !== "" &&
+  parseInt(minRangeInput.value) < parseInt(maxRangeInput.value) && maxRangeInput.value !== "e" &&
+  maxRangeInput.value !== "-" &&
+  maxRangeInput.value !== "+" &&
+  maxRangeInput.value !== ".";
+  console.log(maxGoodList);
+  return maxGoodList;
+}
+
+function maxRules() {
+  if (isMaxGood()) {
+    maxRangeInput.classList.remove("challengeform-error");
+    maxRangeError.classList.add("hidden");
+    updateRangeButton.classList.add("updatebutton-active")
+    updateRangeButton.disabled = false;
+  } else if (maxRangeInput.value === "" || minRangeInput.value === ""){
+    maxRangeInput.classList.remove("challengeform-error");
+    maxRangeError.classList.add("hidden");
+    updateRangeButton.classList.remove("updatebutton-active")
+    updateRangeButton.disabled = true;
+    console.log("yes I'm here too");
+  } else {
+    maxRangeInput.classList.add("challengeform-error");
+    maxRangeError.classList.remove("hidden");
+    updateRangeButton.classList.remove("updatebutton-active")
+    updateRangeButton.disabled = true;
+    console.log("hello again hello");
+  }
+}
+// function minDonts() {
+//   var minDontsList = parseInt(minRangeInput.value) !== "" &&
+//   (parseInt(maxRangeInput.value) < parseInt(minRangeInput.value) ||
+//   minRangeInput.value === "e" ||
+//   minRangeInput.value === "-" ||
+//   minRangeInput.value === "+" ||
+//   minRangeInput.value === ".");
+//   return minDontsList;
+// }
+//
+// function minRules() {
+//   if (minDonts()) {
+//     minRangeInput.classList.add("challengeform-error");
+//     minRangeError.classList.remove("hidden");
+//     updateRangeButton.disabled = true;
+//   } else {
+//     minRangeInput.classList.remove("challengeform-error");
+//     minRangeError.classList.add("hidden");
+//     updateRangeButton.classList.add("updatebutton-active")
+//     updateRangeButton.disabled = false;
+//   }
+// }
 
 // function minRules() {
 //   if (maxRangeInput.value !== "") {
@@ -284,28 +351,27 @@ function minRules() {
 //   }
 // }
 
-function maxDonts() {
-  var maxDontsList = parseInt(maxRangeInput.value) !== "" &&
-  parseInt(minRangeInput.value) > parseInt(maxRangeInput.value) ||
-  maxRangeInput.value === "e" ||
-  maxRangeInput.value === "-" ||
-  maxRangeInput.value === "+" ||
-  maxRangeInput.value === ".";
-  return maxDontsList;
-}
-
-function maxRules() {
-  if (maxDonts()) {
-    maxRangeInput.classList.add("challengeform-error");
-    maxRangeError.classList.remove("hidden");
-    updateRangeButton.disabled = true;
-  } else {
-    maxRangeInput.classList.remove("challengeform-error");
-    maxRangeError.classList.add("hidden");
-    updateRangeButton.classList.add("updatebutton-active")
-    updateRangeButton.disabled = false;
-  }
-}
+// function maxDonts() {
+//   var maxDontsList = parseInt(maxRangeInput.value) !== "" &&
+//   (parseInt(minRangeInput.value) > parseInt(maxRangeInput.value) || maxRangeInput.value === "e" ||
+//   maxRangeInput.value === "-" ||
+//   maxRangeInput.value === "+" ||
+//   maxRangeInput.value === ".");
+//   return maxDontsList;
+// }
+//
+// function maxRules() {
+//   if (maxDonts()) {
+//     maxRangeInput.classList.add("challengeform-error");
+//     maxRangeError.classList.remove("hidden");
+//     updateRangeButton.disabled = true;
+//   } else {
+//     maxRangeInput.classList.remove("challengeform-error");
+//     maxRangeError.classList.add("hidden");
+//     updateRangeButton.classList.add("updatebutton-active")
+//     updateRangeButton.disabled = false;
+//   }
+// }
 
 // function maxRules() {
 //   if (minRangeInput.value !== "") {
@@ -332,40 +398,42 @@ maxRangeInput.addEventListener("blur", maxRules);
 
 var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
 
+function activeUpdate() {
+  updateRangeButton.classList.add("updatebutton-active");
+  updateRangeButton.disabled = false;
+}
+
 function deActiveUpdate() {
   updateRangeButton.classList.remove("updatebutton-active");
+  updateRangeButton.disabled = true;
 }
 
 function updateButtonReady() {
-  var badUpdateFields = 0;
-  for (var i = 0; i < bothRangeFields.length; i++) {
-    if (maxDonts() || minDonts()) {
-      badUpdateFields++;
-      console.log(badUpdateFields);
-    }
-  }
-  if (badUpdateFields !== 0) {
+    if (isMinGood() && isMaxGood()) {
+      activeUpdate();
+    } else {
       deActiveUpdate();
-      updateRangeButton.disabled = true;
     }
   }
+//
+// function updateButtonReady() {
+//   var goodUpdateFields = 0;
+//   for (var i = 0; i < bothRangeFields.length; i++) {
+//     if (isMinGood() && isMaxGood()) {
+//       goodUpdateFields++;
+//       console.log(goodUpdateFields);
+//     }
+//   }
+//   if (goodUpdateFields === 1) {
+//       activeUpdate();
+//   } else {
+//       deActiveUpdate();
+//     }
+//   }
 
   minRangeInput.addEventListener("blur", updateButtonReady);
   maxRangeInput.addEventListener("blur", updateButtonReady);
 
-//guessfield rules
-
-// function guessFieldRules() {
-//   if challenger1GuessBox.value > maxRangeInput.value {
-//     challenger1GuessBox.style.border = "1px solid red";
-//   }
-//   if challenger1GuessBox.value < minRangeInput.value {
-//     challenger1GuessBox.style.border = "1px solid red"
-//   }
-//   if challenger1GuessBox.value === "e" {
-//     challenger1GuessBox.style.border = "1px solid red";
-//   }
-// }
 
 // submit button won't work unless fields are entered
 

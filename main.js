@@ -1,8 +1,63 @@
 
-// All four fields add active state
+//GLOBAL VARIABLES
 
+var challenger1NameBox = document.querySelector("#challenger1-name-box");
+var challenger2NameBox = document.querySelector("#challenger2-name-box");
+var challenger1GuessBox = document.querySelector("#challenger1-guess-box");
+var challenger2GuessBox = document.querySelector("#challenger2-guess-box");
+var minRangeInput = document.getElementById('min-range');
+var maxRangeInput = document.getElementById('max-range');
+var updateRangeButton = document.getElementById('range-update-button');
+var currentRangeMin = document.getElementById('current-min');
+var currentRangeMax = document.getElementById('current-max');
+var randomNum = getRandomNum();
+var scoreText1 = document.getElementById("too-high-too-low1");
+var scoreText2 = document.getElementById("too-high-too-low2");
+var workingSubmitButton = document.querySelector(".submit-active");
+var pinkNumberGuess1 = document.getElementById("score-challenger1-guess");
+var pinkNumberGuess2 = document.getElementById("score-challenger2-guess");
+var scoreChallengerName1 = document.getElementById("score-challenger1-name");
+var scoreChallengerName2 = document.getElementById("score-challenger2-name");
+var resetButton = document.getElementById("reset-button");
+var clearButton = document.getElementById('clear-game-button');
+var minRangeError = document.getElementById("min-range-error-message");
+var maxRangeError = document.getElementById("max-range-error-message");
+var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
+var name1Error = document.getElementById('name1-error-message');
+var name2Error = document.getElementById('name2-error-message');
+var guess1Error = document.getElementById('guess1-error-message');
+var guess2Error = document.getElementById('guess2-error-message');
+var winnerCardParent = document.getElementById("winner-card-section");
 var submitButton = document.querySelector("#submit-button");
 var guessFields = document.querySelectorAll(".challenger-input-fields");
+
+//EVENT LISTENERS
+
+challenger1NameBox.addEventListener("change", activateSubmitButton);
+challenger2NameBox.addEventListener("change", activateSubmitButton);
+challenger1GuessBox.addEventListener("change", activateSubmitButton);
+challenger2GuessBox.addEventListener("change", activateSubmitButton);
+updateRangeButton.addEventListener('click', updateRange);
+updateRangeButton.addEventListener('click', getRandomNum);
+updateRangeButton.addEventListener('click', checkNum);
+submitButton.addEventListener("click", disableSubmitButton);
+resetButton.addEventListener("click", resetGuessCount);
+resetButton.addEventListener("click", resetButtonFunctionality);
+resetButton.addEventListener("click", getRandomNum);
+resetButton.addEventListener('click', checkNum);
+challenger1NameBox.addEventListener("change", activateClearButton);
+challenger2NameBox.addEventListener("change", activateClearButton);
+challenger1GuessBox.addEventListener("change", activateClearButton);
+challenger2GuessBox.addEventListener("change", activateClearButton);
+clearButton.addEventListener('click', clearGuess);
+clearButton.addEventListener("click", disableClearButton);
+minRangeInput.addEventListener("blur", minRules);
+maxRangeInput.addEventListener("blur", maxRules);
+minRangeInput.addEventListener("blur", updateButtonReady);
+maxRangeInput.addEventListener("blur", updateButtonReady);
+winnerCardParent.addEventListener("click", deleteWinnerCard);
+
+// ALL FOUR FIELDS ACTIVE STATE
 
 function addActiveState() {
   submitButton.classList.add("submit-active");
@@ -21,46 +76,15 @@ function activateSubmitButton() {
   }
 }
 
-var challenger1NameBox = document.querySelector("#challenger1-name-box");
-var challenger2NameBox = document.querySelector("#challenger2-name-box");
-var challenger1GuessBox = document.querySelector("#challenger1-guess-box");
-var challenger2GuessBox = document.querySelector("#challenger2-guess-box");
-
-challenger1NameBox.addEventListener("change", activateSubmitButton);
-challenger2NameBox.addEventListener("change", activateSubmitButton);
-challenger1GuessBox.addEventListener("change", activateSubmitButton);
-challenger2GuessBox.addEventListener("change", activateSubmitButton);
-
-// Clear button removes active state
-
-// function removeActiveState() {
-//
-//  submitButton.classList.remove(".submit-active");
-//
-//   }
-// clearbutton.addEventListener("click",removeActiveState);
-
-//Change range numbers to match inputs
-var minRangeInput = document.getElementById('min-range');
-var maxRangeInput = document.getElementById('max-range');
-var updateRangeButton = document.getElementById('range-update-button');
-var currentRangeMin = document.getElementById('current-min');
-var currentRangeMax = document.getElementById('current-max');
-var randomNum = getRandomNum();
-
-updateRangeButton.addEventListener('click', updateRange);
-updateRangeButton.addEventListener('click', getRandomNum);
-updateRangeButton.addEventListener('click', checkNum);
+//CHANGE RANGE NUMBERS TO MATCH INPUTS
 
 function updateRange() {
   event.preventDefault(event);
   currentRangeMin.innerText = minRangeInput.value;
   currentRangeMax.innerText = maxRangeInput.value;
-  // minMaxRules();
 };
 
-
-//Get the random number
+//GET THE RANDOM NUMBER
 
 function getRandomNum() {
   var min = Math.ceil(parseInt(minRangeInput.value));
@@ -72,11 +96,7 @@ function checkNum() {
   console.log(randomNum);
 }
 
-//Winner cards text update
-
-var scoreText1 = document.getElementById("too-high-too-low1");
-var scoreText2 = document.getElementById("too-high-too-low2");
-
+//WINNER CARDS TEXT UPDATE
 
 function compareGuess(guess,feedback){
   console.log("if working say hi");
@@ -104,16 +124,7 @@ function onSubmit() {
   countChallengerGuess();
 }
 
-var workingSubmitButton = document.querySelector(".submit-active");
-
-submitButton.addEventListener("click", disableSubmitButton);
-
-//Change pink numbers to match guess, change names to match challenger names
-
-var pinkNumberGuess1 = document.getElementById("score-challenger1-guess");
-var pinkNumberGuess2 = document.getElementById("score-challenger2-guess");
-var scoreChallengerName1 = document.getElementById("score-challenger1-name");
-var scoreChallengerName2 = document.getElementById("score-challenger2-name");
+//AUTOFILL SCORE CARDS
 
   function changePinkNumberGuess (pinkNumber, numberInput) {
     pinkNumber.innerText = numberInput.value;
@@ -123,36 +134,21 @@ var scoreChallengerName2 = document.getElementById("score-challenger2-name");
     challengerName.innerText = challengerInput.value;
   };
 
-//Winner card display!!!
+//WINNER CARD DISPLAY
 
 function determineWinnerCard() {
-  if (parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) {
+  if (parseInt(challenger1GuessBox.value) === randomNum ||    parseInt(challenger2GuessBox.value) === randomNum) {
     addWinnerCard();
     }
   }
 
 function determineWinnerName() {
   if (parseInt(challenger1GuessBox.value) === randomNum) {
-    return challenger1NameBox.value;
-} else if (parseInt(challenger2GuessBox.value) === randomNum) {
-    return challenger2NameBox.value;
+      return challenger1NameBox.value;
+  } else if (parseInt(challenger2GuessBox.value) === randomNum) {
+      return challenger2NameBox.value;
+  }
 }
-}
-
-
-
-// function changeWinnerName() {
-//
-// }
-
-// X button on winner box
-
-// var winnerCloseButton = document.getElementById("winnerCloser");
-//var winnerCard = document.getElementById('winner-card'); (this was called earlier)
-
-// winnerCloseButton.addEventListener("click", function() {
-//   winnerCard.classList.add("hidden");
-// });
 
 //ACTIVATE RESET BUTTON
 
@@ -169,8 +165,6 @@ function activateResetButton() {
 
 //RESET BUTTON FUNCTIONALITY
 
-var resetButton = document.getElementById("reset-button");
-
 function resetButtonFunctionality() {
   console.log("reset is working")
   pinkNumberGuess1.innerText = "?";
@@ -185,14 +179,7 @@ function resetButtonFunctionality() {
   challenger2NameBox.value = "";
 }
 
-resetButton.addEventListener("click", resetGuessCount);
-resetButton.addEventListener("click", resetButtonFunctionality);
-resetButton.addEventListener("click", getRandomNum);
-resetButton.addEventListener('click', checkNum);
-
-//clear game button functionality
-// make active once all inputs are filled out
-var clearButton = document.getElementById('clear-game-button');
+//ACTIVATE CLEAR GUESS BUTTON
 
 function makeClearActive() {
   clearButton.classList.add("clear-active");
@@ -211,22 +198,14 @@ function activateClearButton() {
   }
 }
 
-challenger1NameBox.addEventListener("change", activateClearButton);
-challenger2NameBox.addEventListener("change", activateClearButton);
-challenger1GuessBox.addEventListener("change", activateClearButton);
-challenger2GuessBox.addEventListener("change", activateClearButton);
-
- // when clear button clicked the guess fields are cleared
-clearButton.addEventListener('click', clearGuess);
+ // CLEAR GUESS BUTTON FUNCTIONALITY
 
 function clearGuess() {
   challenger1GuessBox.value = "";
   challenger2GuessBox.value = "";
 }
 
-//clear button disables when nothing to be cleared
-
-clearButton.addEventListener("click", disableClearButton);
+//DISABLE CLEAR GUESS BUTTON
 
 function disableClearButton() {
   if (challenger1GuessBox.value === "" && challenger2GuessBox.value === "") {
@@ -237,25 +216,16 @@ function disableClearButton() {
   }
 }
 
-//MIN AND MAX rules
-
-//need to make it so that ranges don't update when number is wrong
-//refactor using ||
-
-var minRangeError = document.getElementById("min-range-error-message");
-var maxRangeError = document.getElementById("max-range-error-message");
+//MIN AND MAX UPDATE BUTTON RULES
 
 function isMinGood() {
   var minGoodList =
-    // minRangeInput.value !== "" &&
-    // maxRangeInput.value !== "" &&
     parseInt(maxRangeInput.value) > parseInt(minRangeInput.value) &&
     minRangeInput.value !== "e" &&
     minRangeInput.value !== "-" &&
     minRangeInput.value !== "+" &&
     minRangeInput.value !== ".";
     console.log(minGoodList, minRangeInput.value);
-
     return minGoodList;
 }
 
@@ -282,8 +252,6 @@ function minRules() {
 
 function isMaxGood() {
   var maxGoodList =
-  // maxRangeInput.value !== "" &&
-  // minRangeInput.value !== "" &&
   parseInt(minRangeInput.value) < parseInt(maxRangeInput.value) && maxRangeInput.value !== "e" &&
   maxRangeInput.value !== "-" &&
   maxRangeInput.value !== "+" &&
@@ -313,13 +281,7 @@ function maxRules() {
   }
 }
 
-minRangeInput.addEventListener("blur", minRules);
-maxRangeInput.addEventListener("blur", maxRules);
-
-
 // TRIGGER FOR UPDATE BUTTON ACTIVE
-
-var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
 
 function activeUpdate() {
   updateRangeButton.classList.add("updatebutton-active");
@@ -339,30 +301,20 @@ function updateButtonReady() {
     }
   }
 
-
-  minRangeInput.addEventListener("blur", updateButtonReady);
-  maxRangeInput.addEventListener("blur", updateButtonReady);
-
-
-// submit button won't work unless fields are entered
-
-var name1Error = document.getElementById('name1-error-message');
-var name2Error = document.getElementById('name2-error-message');
-var guess1Error = document.getElementById('guess1-error-message');
-var guess2Error = document.getElementById('guess2-error-message');
+// DISABLE SUBMIT BUTTON
 
 function checkInputRange() {
-  var guessErrors = parseInt(challenger1GuessBox.value) < parseInt(minRangeInput.value) ||
-  parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
-  parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
-  parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value);
+  var guessErrors = parseInt(challenger1GuessBox.value) <     parseInt(minRangeInput.value) ||
+    parseInt(challenger1GuessBox.value) > parseInt(maxRangeInput.value) ||
+    parseInt(challenger2GuessBox.value) < parseInt(minRangeInput.value) ||
+    parseInt(challenger2GuessBox.value) > parseInt(maxRangeInput.value);
   return guessErrors;
 }
 
 function checkInputContent() {
   var contentErrors = challenger1NameBox.value === "" || challenger2NameBox.value === "" ||
-  challenger1GuessBox.value === "" || challenger2GuessBox.value === ""
-  || challenger1GuessBox.value === challenger2GuessBox.value;
+    challenger1GuessBox.value === "" || challenger2GuessBox.value === ""
+    || challenger1GuessBox.value === challenger2GuessBox.value;
   return contentErrors;
 }
 
@@ -412,7 +364,9 @@ function addNameErrorBorder(challenger, error) {
         error.classList.add('hidden');
       }
 }
-//Guess Count function and getting on winner cards
+
+//GUESS COUNT FUNCTION ON WINNER CARDS
+
 var guessCount = 0;
 
 function countChallengerGuess() {
@@ -427,7 +381,7 @@ function resetGuessCount() {
   }
 }
 
-//succesful win range increases and decreases to get larger
+//RANGE INCREASE AFTER WIN
 
 function increaseRange() {
   if ((parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum)
@@ -445,8 +399,7 @@ function increaseRange() {
     }
   }
 
-//Creating new winner card in JS
-
+//CREATE NEW WINNER CARD
 
 function addWinnerCard() {
 var newWinnerCardParent = document.getElementById('winner-card-section');
@@ -467,11 +420,7 @@ newWinnerCardParent.insertAdjacentHTML('afterbegin', `<article class="section2-c
 </article>`);
 }
 
-//WINNER CARD X box
-
-var winnerCardParent = document.getElementById("winner-card-section");
-
-winnerCardParent.addEventListener("click", deleteWinnerCard);
+//WINNER CARD CLOSE FUNCTIONALITY
 
 function deleteWinnerCard(event) {
   if (event.target.classList.contains("card-footer-button")) {

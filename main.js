@@ -76,9 +76,7 @@ function checkNum() {
 
 var scoreText1 = document.getElementById("too-high-too-low1");
 var scoreText2 = document.getElementById("too-high-too-low2");
-// These were declared in earlier function:
-// var challenger1GuessBox
-// var challenger2GuessBox
+
 
 function compareGuess(guess,feedback){
   console.log("if working say hi");
@@ -91,8 +89,7 @@ function compareGuess(guess,feedback){
   }
 }
 
-function onSubmit(event) {
-  event.preventDefault();
+function onSubmit() {
   compareGuess(challenger1GuessBox, scoreText1);
   compareGuess(challenger2GuessBox, scoreText2);
   changePinkNumberGuess(pinkNumberGuess1, challenger1GuessBox);
@@ -482,13 +479,3 @@ function deleteWinnerCard(event) {
     event.target.parentNode.parentNode.remove();
   }
 }
-
-
-// X button on winner box
-
-// var winnerCloseButton = document.getElementById("winnerCloser");
-//var winnerCard = document.getElementById('winner-card'); (this was called earlier)
-
-// winnerCloseButton.addEventListener("click", function() {
-//   winnerCard.classList.add("hidden");
-// });

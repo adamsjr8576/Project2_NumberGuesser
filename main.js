@@ -102,7 +102,9 @@ function onSubmit(event) {
   determineWinnerCard();
   determineWinnerName()
   activateResetButton();
-  addErrors();
+  addRemoveErrors();
+  countChallengerGuess();
+  increaseRange();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -186,6 +188,7 @@ function resetButtonFunctionality() {
   challenger2NameBox.value = "";
 }
 
+resetButton.addEventListener("click", resetGuessCount);
 resetButton.addEventListener("click", resetButtonFunctionality);
 resetButton.addEventListener("click", getRandomNum);
 resetButton.addEventListener('click', checkNum);
@@ -399,14 +402,14 @@ function disableSubmitButton() {
   if (checkInputRange() || checkInputContent()) {
         submitButton.classList.remove("submit-active");
         submitButton.disabled = true;
-        addErrors();
+        addRemoveErrors();
       } else {
         submitButton.disabled = false;
         onSubmit(event);
       }
 }
 
-function addErrors() {
+function addRemoveErrors() {
   addGuessErrorBorder(challenger1GuessBox, guess1Error);
   addGuessErrorBorder(challenger2GuessBox, guess2Error);
   addNameErrorBorder(challenger1NameBox, name1Error);
@@ -432,7 +435,38 @@ function addNameErrorBorder(challenger, error) {
         error.classList.add('hidden');
       }
 }
+//Guess Count function and getting on winner cards
+var guessCount = 0;
 
+function countChallengerGuess() {
+  guessCount += 2;
+  console.log(guessCount);
+  return guessCount;
+}
+
+function resetGuessCount() {
+  if (parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) {
+    guessCount = 0;
+  }
+}
+
+//succesful win range increases and decreases to get larger
+
+function increaseRange() {
+  if ((parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) 
+      && parseInt(minRangeInput.value) > 10) {
+      var newMin = parseInt(minRangeInput.value) - 10;
+      minRangeInput.value = newMin;
+      currentRangeMin.innerText = newMin;
+      var newMax = parseInt(maxRangeInput.value) + 10;
+      maxRangeInput.value = newMax;
+      currentRangeMax.innerText = newMax;
+    } else if (parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) {
+      var newMax = parseInt(maxRangeInput.value) + 10;
+      maxRangeInput.value = newMax;
+      currentRangeMax.innerText = newMax;
+    }
+  }
 
 //Creating new winner card in JS
 
@@ -450,7 +484,7 @@ newWinnerCard.innerHTML = `<section class='section2-card-header'>
   <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
 <div class='card-div-style'></div>
 <section class='section2-card-footer'>
-  <p class='card-footer-p'><span class='section2-font-strong'>47 </span>GUESSES</p>
+  <p class='card-footer-p'><span class='section2-font-strong'>${countChallengerGuess()}</span>  GUESSES</p>
   <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
   <button class='card-footer-button' id = winnerCloser>X</button>
 </section>`;

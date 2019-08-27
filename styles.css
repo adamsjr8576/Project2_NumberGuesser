@@ -167,6 +167,7 @@ button.updatebutton-active:hover {
   height: 15px;
   width: 15px;
   margin-right: 5px;
+  font-size: 10pt;
 }
 
 .challengeform-guessbox-plus-label {

@@ -102,7 +102,8 @@ function onSubmit(event) {
   determineWinnerCard();
   determineWinnerName()
   activateResetButton();
-  addErrors();
+  addRemoveErrors();
+  countChallengerGuess();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -399,14 +400,14 @@ function disableSubmitButton() {
   if (checkInputRange() || checkInputContent()) {
         submitButton.classList.remove("submit-active");
         submitButton.disabled = true;
-        addErrors();
+        addRemoveErrors();
       } else {
         submitButton.disabled = false;
         onSubmit(event);
       }
 }
 
-function addErrors() {
+function addRemoveErrors() {
   addGuessErrorBorder(challenger1GuessBox, guess1Error);
   addGuessErrorBorder(challenger2GuessBox, guess2Error);
   addNameErrorBorder(challenger1NameBox, name1Error);
@@ -432,7 +433,14 @@ function addNameErrorBorder(challenger, error) {
         error.classList.add('hidden');
       }
 }
+//Guess Count function and getting on winner cards
+var guessCount = 0;
 
+function countChallengerGuess() {
+  guessCount += 2;
+  console.log(guessCount);
+  return guessCount;
+}
 
 //Creating new winner card in JS
 
@@ -450,7 +458,7 @@ newWinnerCard.innerHTML = `<section class='section2-card-header'>
   <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
 <div class='card-div-style'></div>
 <section class='section2-card-footer'>
-  <p class='card-footer-p'><span class='section2-font-strong'>47 </span>GUESSES</p>
+  <p class='card-footer-p'><span class='section2-font-strong'>${countChallengerGuess()}</span>  GUESSES</p>
   <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
   <button class='card-footer-button' id = winnerCloser>X</button>
 </section>`;

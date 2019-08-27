@@ -453,7 +453,8 @@ function resetGuessCount() {
 //succesful win range increases and decreases to get larger
 
 function increaseRange() {
-  if (parseInt(minRangeInput.value) > 10 && parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) {
+  if ((parseInt(challenger1GuessBox.value) === randomNum || parseInt(challenger2GuessBox.value) === randomNum) 
+      && parseInt(minRangeInput.value) > 10) {
       var newMin = parseInt(minRangeInput.value) - 10;
       minRangeInput.value = newMin;
       currentRangeMin.innerText = newMin;

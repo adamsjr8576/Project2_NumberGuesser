@@ -97,11 +97,11 @@ function onSubmit() {
   changeChallengerName(scoreChallengerName1, challenger1NameBox);
   changeChallengerName(scoreChallengerName2, challenger2NameBox);
   determineWinnerCard();
-  determineWinnerName()
+  determineWinnerName();
   activateResetButton();
   addRemoveErrors();
-  countChallengerGuess();
   increaseRange();
+  countChallengerGuess();
 }
 
 var workingSubmitButton = document.querySelector(".submit-active");
@@ -450,8 +450,7 @@ function increaseRange() {
 
 function addWinnerCard() {
 var newWinnerCardParent = document.getElementById('winner-card-section');
-newWinnerCardParent.innerHTML += `
-<article class="section2-card-background">
+newWinnerCardParent.insertAdjacentHTML('afterbegin', `<article class="section2-card-background">
   <section class='section2-card-header'>
     <h4 id='card-challenger1-name' class='card-header-h4'>${challenger1NameBox.value}</h4>
     <p class='card-header-p'>VS</p>
@@ -465,7 +464,7 @@ newWinnerCardParent.innerHTML += `
     <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
     <button class='card-footer-button' id='winnerCloser'>X</button>
   </section>
-</article>`;
+</article>`);
 }
 
 //WINNER CARD X box

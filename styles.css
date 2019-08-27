@@ -47,13 +47,14 @@ body {
 
 .full-page-sections {
   display: flex;
-  height: 100%;
 }
 
 .main-section1-forms {
   background-color: #f7f7f7;
   width: 50%;
   border: 1px solid #d0d2d3;
+  height: 675px;
+  /* overflow: scroll; */
 }
 
 .section1-setrangeForm {
@@ -327,16 +328,18 @@ button.clear-active:hover {
 }
 
 .main-section2-cards {
+  overflow: auto;
   background-color: #d0d2d3;
   width: 50%;
   border: 1px solid #404041;
+  height: 675px;
 }
 
 .section2-card-background {
   background-color: white;
   width: 90%;
-  border: 1px solid #d0d2d3;
   margin: 10px auto 5px auto;
+  border: 3px solid #d0d2d3;
   text-align: center;
 }
 
@@ -380,6 +383,7 @@ button.clear-active:hover {
 
 .challenger-winner-capitalize {
   text-transform: uppercase;
+  overflow: auto;
 }
 
 .section2-card-footer {

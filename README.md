@@ -68,6 +68,8 @@ Behaviors:
 
 ## Setup
 
+Access the site <a href="https://adamsjr8576.github.io/Project2_NumberGuesser/">here.</a>
+
 ## License
 
 Credit for project specs and web design goes to Turing School of Software and Design.

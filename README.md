@@ -1,7 +1,7 @@
 # Project2_NumberGuesser
 
 
-##Table of Contents
+## Table of Contents
 
 * [General Info](#Allie-and-John's-number-guesser)
 * [Background](#Background)
@@ -18,7 +18,7 @@
 
 <h4>The purpose for this project was to practice HTML, CSS, and JavaScript for the Front-End Engineering course at Turing during Module 1.</h4>
 
-##Background
+## Background
 
 For this project, we were given a static comp that we had to recreate using HTML and CSS.  We were then given a list of behaviors that the site was expected to have in order for the game to follow a set of rules.  See the comp <a href="https://frontend.turing.io/assets/images/projects/number-guesser/week2-numberguesser-01.jpg">here</a>.
 
@@ -40,34 +40,34 @@ Behaviors:
 
 - The site must be responsive down to a width of 320px.
 
-##Built-With
+## Built-With
 
 - HTML5
 - CSS3
 - JavaScript
 
-##Screenshots
+## Screenshots
 
 <img src="images/minmax-error-state" alt="Min/Max error state">
 <img src="images/guess-error-state" alt="Guess error state">
 <img src="images/winner-display" alt="Winner Display">
 
-##How-to-Use
+## How-to-Use
 
 - Set the range for the random number to fall within.  A random number will be generated when you click 'update.'
 - Fill out your name and your guess in the indicated forms.  Click submit.
 - The score cards will tell you if your guess is too high or too low.  Clear your guesses, adjust what you think the number is based on the feedback, and click submit again.
 - Once a correct guess has been made, reset the game to expand the range.  Start guessing again!
 
-##Features
+## Features
 
 - [x] Altering page content via input field (JS)
 - [x] Responsive (CSS Media Query for navigation and page columns)
 - [x] Generating random number through JS, comparison of number to inputs
 
 
-##Setup
+## Setup
 
-##License
+## License
 
 Credit for project specs and web design goes to Turing School of Software and Design.

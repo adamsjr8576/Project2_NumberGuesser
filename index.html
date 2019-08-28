@@ -22,12 +22,12 @@
           <section class="setrangeform-rangeforms-plus-button">
             <section class="setrangeform-rangebox-plus-label">
               <label for="min-range" class="setrangeform-label">Min Range</label>
-              <input type="number" id="min-range" name="min-range" class="setrangeform-textbox challenger-input-fields minMaxRangeFields"></input>
+              <input min="1" max="100" type="number" id="min-range" name="min-range" class="setrangeform-textbox challenger-input-fields minMaxRangeFields"></input>
               <p id="min-range-error-message" class="namebox-error hidden"><img src="images/error-icon.svg" alt="photo of error icon in pink" class="error-icon">Must be less than max</p>
             </section>
             <section class="setrangeform-rangebox-plus-label">
               <label for="max-range">Max Range</label>
-              <input type="number" id="max-range" name="max-range" class="setrangeform-textbox challenger-input-fields minMaxRangeFields"></input>
+              <input min="1" max="100" type="number" id="max-range" name="max-range" class="setrangeform-textbox challenger-input-fields minMaxRangeFields"></input>
               <p id="max-range-error-message" class="namebox-error hidden"><img src="images/error-icon.svg" alt="photo of error icon in pink" class="error-icon">Must be more than min</p>
             </section>
             <button id="range-update-button" class="setrangeform-updatebutton updatebutton-active">UPDATE</button>

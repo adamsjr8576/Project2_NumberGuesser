@@ -54,7 +54,7 @@ body {
   width: 50%;
   border: 1px solid #d0d2d3;
   height: 675px;
-  /* overflow: scroll; */
+  overflow: scroll;
 }
 
 .section1-setrangeForm {
@@ -384,6 +384,7 @@ button.clear-active:hover {
 .challenger-winner-capitalize {
   text-transform: uppercase;
   overflow: auto;
+  animation: color-change 4s;
 }
 
 .section2-card-footer {
@@ -427,12 +428,68 @@ button.clear-active:hover {
   font-weight: 300;
 }
 
+.fade-in {
+  animation-name: fading-in;
+  animation-duration: 2s;
+}
+
+.color-change {
+  animation-name: color-change;
+  animation-duration: 4s;
+}
+
+@keyframes fading-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes color-change {
+  from {
+    color: #FFFC51;
+  }
+  10% {
+    color: #FF7135;
+  }
+  20% {
+    color: #D226F0;
+  }
+  30% {
+    color: #D226F0;
+  }
+  40% {
+    color: #6D1CE5;
+  }
+  50% {
+    color: #4224E6;
+  }
+  60% {
+    color: #1689E2;
+  }
+  70% {
+    color: #08ED17;
+  }
+  80% {
+    color: #CAFC09;
+  }
+  90% {
+    color: #FFAE00;
+  }
+  100% {
+    color: black;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .full-page-sections {
     flex-direction: column;
   }
   .main-section1-forms {
     width: 100%;
+    height: 700px;
   }
   .main-section2-cards {
     width: 100%;

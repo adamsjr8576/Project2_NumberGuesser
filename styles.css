@@ -54,7 +54,7 @@ body {
   width: 50%;
   border: 1px solid #d0d2d3;
   height: 675px;
-  /* overflow: scroll; */
+  overflow: scroll;
 }
 
 .section1-setrangeForm {
@@ -100,29 +100,20 @@ body {
   border: 0;
 }
 
+button.updatebutton-active:active {
+  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
+}
+
 button.updatebutton-active {
-  width: 25%;
-  color: white;
   background-color: #404041;
-  border-radius: 20px;
-  margin: auto 10px 0 10px;
-  font-size: 100%;
-  font-weight: 700;
-  padding: 7px;
-  border: 0;
   cursor: pointer;
+  outline: 0;
 }
 
 button.updatebutton-active:hover {
-  width: 25%;
-  color: white;
   background-color: #dd1972;
-  border-radius: 20px;
-  margin: auto 10px 0 10px;
-  font-size: 100%;
-  font-weight: 700;
-  padding: 7px;
-  border: 0;
 }
 
 .section2-challenger-forms {
@@ -190,26 +181,18 @@ button.updatebutton-active:hover {
   justify-content: space-around;
 }
 
+button.submit-active:active {  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
+}
+
 button.submit-active {
-  width: 40%;
-  color: white;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
   background-color: #404041;
   cursor: pointer;
+  outline: 0;
 }
 
 button.submit-active:hover {
-  width: 40%;
-  color: white;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
   background-color: #dd1972;
 }
 
@@ -225,26 +208,18 @@ button.submit-active:hover {
 }
 
 button.reset-active {
-  width: 30%;
-  color: white;
   background-color: #404041;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
   cursor: pointer;
 }
 
 button.reset-active:hover {
-  width: 30%;
-  color: white;
   background-color: #dd1972;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
+}
+
+button.reset-active:active {
+  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
 }
 
 .section2-clear-reset-button {
@@ -256,29 +231,22 @@ button.reset-active:hover {
   font-weight: 700;
   font-size: 100%;
   border-radius: 20px;
+  outline: 0;
 }
 
 button.clear-active {
-  width: 30%;
-  color: white;
   background-color: #404041;
-  margin: 0 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
-  border-radius: 20px;
   cursor: pointer;
 }
 
 button.clear-active:hover {
-  width: 30%;
-  color: white;
   background-color: #dd1972;
-  margin: 0 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
-  border-radius: 20px;
+}
+
+button.clear-active:active {
+  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
 }
 
 .section1-article-style {
@@ -384,6 +352,7 @@ button.clear-active:hover {
 .challenger-winner-capitalize {
   text-transform: uppercase;
   overflow: auto;
+  animation: color-change 4s;
 }
 
 .section2-card-footer {
@@ -427,12 +396,68 @@ button.clear-active:hover {
   font-weight: 300;
 }
 
+.fade-in {
+  animation-name: fading-in;
+  animation-duration: 2s;
+}
+
+.color-change {
+  animation-name: color-change;
+  animation-duration: 4s;
+}
+
+@keyframes fading-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes color-change {
+  from {
+    color: #FFFC51;
+  }
+  10% {
+    color: #FF7135;
+  }
+  20% {
+    color: #D226F0;
+  }
+  30% {
+    color: #D226F0;
+  }
+  40% {
+    color: #6D1CE5;
+  }
+  50% {
+    color: #4224E6;
+  }
+  60% {
+    color: #1689E2;
+  }
+  70% {
+    color: #08ED17;
+  }
+  80% {
+    color: #CAFC09;
+  }
+  90% {
+    color: #FFAE00;
+  }
+  100% {
+    color: black;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .full-page-sections {
     flex-direction: column;
   }
   .main-section1-forms {
     width: 100%;
+    height: 700px;
   }
   .main-section2-cards {
     width: 100%;

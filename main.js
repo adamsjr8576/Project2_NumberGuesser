@@ -45,6 +45,7 @@ resetButton.addEventListener("click", resetGuessCount);
 resetButton.addEventListener("click", resetButtonFunctionality);
 resetButton.addEventListener("click", getRandomNum);
 resetButton.addEventListener('click', checkNum);
+resetButton.addEventListener('click', removeColorChange);
 challenger1NameBox.addEventListener("change", activateClearButton);
 challenger2NameBox.addEventListener("change", activateClearButton);
 challenger1GuessBox.addEventListener("change", activateClearButton);
@@ -106,7 +107,15 @@ function compareGuess(guess,feedback){
     feedback.innerText = "that's too low";
   } else {
     feedback.innerText = "BOOM!";
+    feedback.classList.add('color-change');
   }
+}
+
+function removeColorChange() {
+  scoreText1.classList.remove('color-change');
+  scoreText2.classList.remove('color-change');
+  pinkNumberGuess1.classList.remove('color-change');
+  pinkNumberGuess2.classList.remove('color-change');
 }
 
 function onSubmit() {
@@ -128,6 +137,9 @@ function onSubmit() {
 
   function changePinkNumberGuess (pinkNumber, numberInput) {
     pinkNumber.innerText = numberInput.value;
+    if (parseInt(numberInput.value) === randomNum) {
+      pinkNumber.classList.add('color-change');
+    }
   };
 
   function changeChallengerName (challengerName, challengerInput) {
@@ -403,14 +415,14 @@ function increaseRange() {
 
 function addWinnerCard() {
 var newWinnerCardParent = document.getElementById('winner-card-section');
-newWinnerCardParent.insertAdjacentHTML('afterbegin', `<article class="section2-card-background">
+newWinnerCardParent.insertAdjacentHTML('afterbegin', `<article class="section2-card-background fade-in">
   <section class='section2-card-header'>
     <h4 id='card-challenger1-name' class='card-header-h4'>${challenger1NameBox.value}</h4>
     <p class='card-header-p'>VS</p>
     <h4 id='card-challenger2-name' class='card-header-h4'>${challenger2NameBox.value}</h4>
   </section>
   <div class='card-div-style'></div>
-    <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light'> WINNER</span></h1>
+    <h1 class='section2-body-h1'><span class="challenger-winner-capitalize" id='challenger-winner-name'>${determineWinnerName()}</span><span class='section2-font-light color-change'> WINNER</span></h1>
   <div class='card-div-style'></div>
   <section class='section2-card-footer'>
     <p class='card-footer-p'><span class='section2-font-strong'>${countChallengerGuess()}</span>  GUESSES</p>

@@ -24,7 +24,7 @@ For this project, we were given a static comp that we had to recreate using HTML
 
 Behaviors:
 
--Users must be able to define a range for their guess using the max and min fields. Update button must update the listed range, and must not work when either input contains a non-numerical value, and must show an error if the max is smaller than the min.
+- Users must be able to define a range for their guess using the max and min fields. Update button must update the listed range, and must not work when either input contains a non-numerical value, and must show an error if the max is smaller than the min.
 
 - A random number must be generated when the update button is clicked.
 

@@ -16,7 +16,7 @@
 
 <img src="images/number-guesser-logo" alt="Number Guesser Logo">
 
-<h4>The purpose for this project was to practice HTML, CSS, and JavaScript for the Front-End Engineering course at Turing during Module 1.</h4>
+The purpose for this project was to practice HTML, CSS, and JavaScript for the Front-End Engineering course at Turing during Module 1.
 
 ## Background
 

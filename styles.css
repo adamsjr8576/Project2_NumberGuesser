@@ -100,29 +100,20 @@ body {
   border: 0;
 }
 
+button.updatebutton-active:active {
+  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
+}
+
 button.updatebutton-active {
-  width: 25%;
-  color: white;
   background-color: #404041;
-  border-radius: 20px;
-  margin: auto 10px 0 10px;
-  font-size: 100%;
-  font-weight: 700;
-  padding: 7px;
-  border: 0;
   cursor: pointer;
+  outline: 0;
 }
 
 button.updatebutton-active:hover {
-  width: 25%;
-  color: white;
   background-color: #dd1972;
-  border-radius: 20px;
-  margin: auto 10px 0 10px;
-  font-size: 100%;
-  font-weight: 700;
-  padding: 7px;
-  border: 0;
 }
 
 .section2-challenger-forms {
@@ -190,26 +181,18 @@ button.updatebutton-active:hover {
   justify-content: space-around;
 }
 
+button.submit-active:active {  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
+}
+
 button.submit-active {
-  width: 40%;
-  color: white;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
   background-color: #404041;
   cursor: pointer;
+  outline: 0;
 }
 
 button.submit-active:hover {
-  width: 40%;
-  color: white;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
   background-color: #dd1972;
 }
 
@@ -225,26 +208,18 @@ button.submit-active:hover {
 }
 
 button.reset-active {
-  width: 30%;
-  color: white;
   background-color: #404041;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
   cursor: pointer;
 }
 
 button.reset-active:hover {
-  width: 30%;
-  color: white;
   background-color: #dd1972;
-  border-radius: 20px;
-  margin: auto 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
+}
+
+button.reset-active:active {
+  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
 }
 
 .section2-clear-reset-button {
@@ -256,29 +231,22 @@ button.reset-active:hover {
   font-weight: 700;
   font-size: 100%;
   border-radius: 20px;
+  outline: 0;
 }
 
 button.clear-active {
-  width: 30%;
-  color: white;
   background-color: #404041;
-  margin: 0 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
-  border-radius: 20px;
   cursor: pointer;
 }
 
 button.clear-active:hover {
-  width: 30%;
-  color: white;
   background-color: #dd1972;
-  margin: 0 10px 10px 10px;
-  padding: 7px;
-  font-weight: 700;
-  font-size: 100%;
-  border-radius: 20px;
+}
+
+button.clear-active:active {
+  background-color: #dd1972;
+  box-shadow: 0 5px #404041;
+  transform: translateY(3px);
 }
 
 .section1-article-style {

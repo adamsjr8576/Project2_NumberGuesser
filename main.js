@@ -45,6 +45,7 @@ resetButton.addEventListener("click", resetGuessCount);
 resetButton.addEventListener("click", resetButtonFunctionality);
 resetButton.addEventListener("click", getRandomNum);
 resetButton.addEventListener('click', checkNum);
+resetButton.addEventListener('click', removeColorChange);
 challenger1NameBox.addEventListener("change", activateClearButton);
 challenger2NameBox.addEventListener("change", activateClearButton);
 challenger1GuessBox.addEventListener("change", activateClearButton);
@@ -108,6 +109,13 @@ function compareGuess(guess,feedback){
     feedback.innerText = "BOOM!";
     feedback.classList.add('color-change');
   }
+}
+
+function removeColorChange() {
+  scoreText1.classList.remove('color-change');
+  scoreText2.classList.remove('color-change');
+  pinkNumberGuess1.classList.remove('color-change');
+  pinkNumberGuess2.classList.remove('color-change');
 }
 
 function onSubmit() {

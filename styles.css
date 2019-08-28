@@ -8,6 +8,8 @@ body {
   font-family: 'Open Sans';
 }
 
+/* Num Guesser Header Styling */
+
 .body-header-style {
   background-color: #404041;
   display: flex;
@@ -45,17 +47,23 @@ body {
   height: 0;
 }
 
+/* Main Section that contains the two column sections */
+
 .full-page-sections {
   display: flex;
 }
+
+/* Left side section that contains forms and inputs */
 
 .main-section1-forms {
   background-color: #f7f7f7;
   width: 50%;
   border: 1px solid #d0d2d3;
-  height: 675px;
+  height: 750px;
   overflow: scroll;
 }
+
+/* form that contains the two set range inputs and buttons */
 
 .section1-setrangeForm {
   background-color: white;
@@ -74,7 +82,7 @@ body {
 .setrangeform-rangeforms-plus-button {
   display: flex;
   width: 95%;
-  margin: 0px auto 20px auto;
+  margin: 0px auto 10px auto;
 }
 
 .setrangeform-rangebox-plus-label {
@@ -93,7 +101,7 @@ body {
   color: white;
   background-color: #D0D2D3;
   border-radius: 20px;
-  margin: auto 10px 0 10px;
+  margin: 20px 10px 20px 10px;
   font-size: 100%;
   font-weight: 700;
   padding: 7px;
@@ -115,6 +123,8 @@ button.updatebutton-active {
 button.updatebutton-active:hover {
   background-color: #dd1972;
 }
+
+/* form that contains the name and guess input with submit, reset and clear buttons */
 
 .section2-challenger-forms {
   background-color: white;
@@ -152,7 +162,8 @@ button.updatebutton-active:hover {
 
 .namebox-error {
   color: #dd1972;
-  margin: 0;
+  margin: 5px 0px 0px 0px;
+  font-size: 90%;
 }
 
 .error-icon {
@@ -249,6 +260,8 @@ button.clear-active:active {
   transform: translateY(3px);
 }
 
+/* section that contains the players names, guess and hot/cold/winner info */
+
 .section1-article-style {
   width: 95%;
   border: 1px solid #d0d2d3;
@@ -295,13 +308,17 @@ button.clear-active:active {
   margin: 0px 10px 0px 10px;
 }
 
+/* Right side section that contains the winner cards */
+
 .main-section2-cards {
   overflow: auto;
   background-color: #d0d2d3;
   width: 50%;
   border: 1px solid #404041;
-  height: 675px;
+  height: 750px;
 }
+
+/* Winner cards that display once a winner is determined */
 
 .section2-card-background {
   background-color: white;
@@ -312,7 +329,7 @@ button.clear-active:active {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .section2-card-header {
@@ -396,14 +413,16 @@ button.clear-active:active {
   font-weight: 300;
 }
 
+/* Animations */
+
 .fade-in {
   animation-name: fading-in;
-  animation-duration: 2s;
+  animation-duration: 4s;
 }
 
 .color-change {
   animation-name: color-change;
-  animation-duration: 4s;
+  animation-duration: 5s;
 }
 
 @keyframes fading-in {
@@ -451,13 +470,15 @@ button.clear-active:active {
   }
 }
 
+/* Media Queries */
+
 @media screen and (max-width: 550px) {
   .full-page-sections {
     flex-direction: column;
   }
   .main-section1-forms {
     width: 100%;
-    height: 700px;
+    height: 725px;
   }
   .main-section2-cards {
     width: 100%;

@@ -1,61 +1,58 @@
 
 //GLOBAL VARIABLES
 
+var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
 var challenger1NameBox = document.querySelector("#challenger1-name-box");
 var challenger2NameBox = document.querySelector("#challenger2-name-box");
 var challenger1GuessBox = document.querySelector("#challenger1-guess-box");
 var challenger2GuessBox = document.querySelector("#challenger2-guess-box");
-var minRangeInput = document.getElementById('min-range');
-var maxRangeInput = document.getElementById('max-range');
-var updateRangeButton = document.getElementById('range-update-button');
+var clearButton = document.getElementById('clear-game-button');
 var currentRangeMin = document.getElementById('current-min');
 var currentRangeMax = document.getElementById('current-max');
-var randomNum = getRandomNum();
-var scoreText1 = document.getElementById("too-high-too-low1");
-var scoreText2 = document.getElementById("too-high-too-low2");
-var workingSubmitButton = document.querySelector(".submit-active");
-var pinkNumberGuess1 = document.getElementById("score-challenger1-guess");
-var pinkNumberGuess2 = document.getElementById("score-challenger2-guess");
-var scoreChallengerName1 = document.getElementById("score-challenger1-name");
-var scoreChallengerName2 = document.getElementById("score-challenger2-name");
-var resetButton = document.getElementById("reset-button");
-var clearButton = document.getElementById('clear-game-button');
-var minRangeError = document.getElementById("min-range-error-message");
-var maxRangeError = document.getElementById("max-range-error-message");
-var bothRangeFields = document.querySelectorAll(".minMaxRangeFields");
-var name1Error = document.getElementById('name1-error-message');
-var name2Error = document.getElementById('name2-error-message');
+var guessFields = document.querySelectorAll(".challenger-input-fields");
+var guessCount = 0;
 var guess1Error = document.getElementById('guess1-error-message');
 var guess2Error = document.getElementById('guess2-error-message');
-var winnerCardParent = document.getElementById("winner-card-section");
+var minRangeInput = document.getElementById('min-range');
+var minRangeError = document.getElementById("min-range-error-message");
+var maxRangeInput = document.getElementById('max-range');
+var maxRangeError = document.getElementById("max-range-error-message");
+var name1Error = document.getElementById('name1-error-message');
+var name2Error = document.getElementById('name2-error-message');
+var pinkNumberGuess1 = document.getElementById("score-challenger1-guess");
+var pinkNumberGuess2 = document.getElementById("score-challenger2-guess");
+var randomNum = getRandomNum();
+var resetButton = document.getElementById("reset-button");
+var scoreChallengerName1 = document.getElementById("score-challenger1-name");
+var scoreChallengerName2 = document.getElementById("score-challenger2-name");
+var scoreText1 = document.getElementById("too-high-too-low1");
+var scoreText2 = document.getElementById("too-high-too-low2");
 var submitButton = document.querySelector("#submit-button");
-var guessFields = document.querySelectorAll(".challenger-input-fields");
+var updateRangeButton = document.getElementById('range-update-button');
+var workingSubmitButton = document.querySelector(".submit-active");
+var winnerCardParent = document.getElementById("winner-card-section");
 
 //EVENT LISTENERS
 
 challenger1NameBox.addEventListener("change", activateSubmitButton);
-challenger2NameBox.addEventListener("change", activateSubmitButton);
-challenger1GuessBox.addEventListener("change", activateSubmitButton);
-challenger2GuessBox.addEventListener("change", activateSubmitButton);
-updateRangeButton.addEventListener('click', updateRange);
-updateRangeButton.addEventListener('click', getRandomNum);
-updateRangeButton.addEventListener('click', checkNum);
-submitButton.addEventListener("click", disableSubmitButton);
-resetButton.addEventListener("click", resetGuessCount);
-resetButton.addEventListener("click", resetButtonFunctionality);
-resetButton.addEventListener("click", getRandomNum);
-resetButton.addEventListener('click', checkNum);
-resetButton.addEventListener('click', removeColorChange);
 challenger1NameBox.addEventListener("change", activateClearButton);
+challenger2NameBox.addEventListener("change", activateSubmitButton);
 challenger2NameBox.addEventListener("change", activateClearButton);
+challenger1GuessBox.addEventListener("change", activateSubmitButton);
 challenger1GuessBox.addEventListener("change", activateClearButton);
+challenger2GuessBox.addEventListener("change", activateSubmitButton);
 challenger2GuessBox.addEventListener("change", activateClearButton);
 clearButton.addEventListener('click', clearGuess);
 clearButton.addEventListener("click", disableClearButton);
-minRangeInput.addEventListener("blur", minRules);
+resetButton.addEventListener("click", clickResetButton);
 maxRangeInput.addEventListener("blur", maxRules);
-minRangeInput.addEventListener("blur", updateButtonReady);
 maxRangeInput.addEventListener("blur", updateButtonReady);
+minRangeInput.addEventListener("blur", minRules);
+minRangeInput.addEventListener("blur", updateButtonReady);
+submitButton.addEventListener("click", disableSubmitButton);
+updateRangeButton.addEventListener('click', updateRange);
+updateRangeButton.addEventListener('click', getRandomNum);
+updateRangeButton.addEventListener('click', checkNum);
 winnerCardParent.addEventListener("click", deleteWinnerCard);
 
 // ALL FOUR FIELDS ACTIVE STATE
@@ -93,6 +90,8 @@ function getRandomNum() {
   randomNum = Math.floor(Math.random() * (max - min)) + min;
 };
 
+//FOR DEMO PURPOSES - CAN CHECK # IN DEV TOOLS
+
 function checkNum() {
   console.log(randomNum);
 }
@@ -100,7 +99,6 @@ function checkNum() {
 //WINNER CARDS TEXT UPDATE
 
 function compareGuess(guess,feedback){
-  console.log("if working say hi");
   if (parseInt(guess.value) > randomNum) {
     feedback.innerText = "that's too high";
   } else if (parseInt(guess.value) < randomNum) {
@@ -110,6 +108,7 @@ function compareGuess(guess,feedback){
     feedback.classList.add('color-change');
   }
 }
+ //REMOVES COLOR CHANGE ON RESET TO BE ADDED WHEN ANOTHER WINNER
 
 function removeColorChange() {
   scoreText1.classList.remove('color-change');
@@ -117,6 +116,8 @@ function removeColorChange() {
   pinkNumberGuess1.classList.remove('color-change');
   pinkNumberGuess2.classList.remove('color-change');
 }
+
+//EVENT HANDLER FOR SUBMIT button
 
 function onSubmit() {
   compareGuess(challenger1GuessBox, scoreText1);
@@ -131,6 +132,15 @@ function onSubmit() {
   addRemoveErrors();
   increaseRange();
   countChallengerGuess();
+}
+
+//RESET BUTTON HANDLER
+function clickResetButton() {
+  resetGuessCount();
+  resetButtonFunctionality();
+  getRandomNum();
+  checkNum();
+  removeColorChange();
 }
 
 //AUTOFILL SCORE CARDS
@@ -178,7 +188,6 @@ function activateResetButton() {
 //RESET BUTTON FUNCTIONALITY
 
 function resetButtonFunctionality() {
-  console.log("reset is working")
   pinkNumberGuess1.innerText = "?";
   pinkNumberGuess2.innerText = "?";
   scoreChallengerName1.innerText = "Challenger 1"
@@ -237,7 +246,6 @@ function isMinGood() {
     minRangeInput.value !== "-" &&
     minRangeInput.value !== "+" &&
     minRangeInput.value !== ".";
-    console.log(minGoodList, minRangeInput.value);
     return minGoodList;
 }
 
@@ -252,13 +260,11 @@ function minRules() {
     maxRangeError.classList.add("hidden");
     updateRangeButton.classList.remove("updatebutton-active")
     updateRangeButton.disabled = true;
-    console.log("yes I'm here")
   } else {
     minRangeInput.classList.add("challengeform-error");
     minRangeError.classList.remove("hidden");
     updateRangeButton.classList.remove("updatebutton-active")
     updateRangeButton.disabled = true;
-    console.log("just called to say hello");
   }
 }
 
@@ -268,7 +274,6 @@ function isMaxGood() {
   maxRangeInput.value !== "-" &&
   maxRangeInput.value !== "+" &&
   maxRangeInput.value !== ".";
-  console.log(maxGoodList);
   return maxGoodList;
 }
 
@@ -283,13 +288,11 @@ function maxRules() {
     maxRangeError.classList.add("hidden");
     updateRangeButton.classList.remove("updatebutton-active")
     updateRangeButton.disabled = true;
-    console.log("yes I'm here too");
   } else {
     maxRangeInput.classList.add("challengeform-error");
     maxRangeError.classList.remove("hidden");
     updateRangeButton.classList.remove("updatebutton-active")
     updateRangeButton.disabled = true;
-    console.log("hello again hello");
   }
 }
 
@@ -379,11 +382,8 @@ function addNameErrorBorder(challenger, error) {
 
 //GUESS COUNT FUNCTION ON WINNER CARDS
 
-var guessCount = 0;
-
 function countChallengerGuess() {
   guessCount += 2;
-  console.log(guessCount);
   return guessCount;
 }
 
@@ -426,7 +426,7 @@ newWinnerCardParent.insertAdjacentHTML('afterbegin', `<article class="section2-c
   <div class='card-div-style'></div>
   <section class='section2-card-footer'>
     <p class='card-footer-p'><span class='section2-font-strong'>${countChallengerGuess()}</span>  GUESSES</p>
-    <p class='card-footer-p'><span class='section2-font-strong'>1.35 </span>MINUTES</p>
+    <p class='card-footer-p'><span class='section2-font-strong'>-- </span>MINUTES</p>
     <button class='card-footer-button' id='winnerCloser'>X</button>
   </section>
 </article>`);

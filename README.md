@@ -14,7 +14,7 @@
 
 ## General Info
 
-<img src="images/number-guesser-logo" alt="Number Guesser Logo">
+<img src="images/number-guesser-logo.png" alt="Number Guesser Logo">
 
 The purpose for this project was to practice HTML, CSS, and JavaScript for the Front-End Engineering course at Turing during Module 1.
 
@@ -48,9 +48,9 @@ Behaviors:
 
 ## Screenshots
 
-<img src="images/minmax-error-state" alt="Min/Max error state">
-<img src="images/guess-error-state" alt="Guess error state">
-<img src="images/winner-display" alt="Winner Display">
+<img src="images/minmax-error-state.png" alt="Min/Max error state">
+<img src="images/guess-error-state.png" alt="Guess error state">
+<img src="images/winner-display.png" alt="Winner Display">
 
 ## How-to-Use
 

@@ -256,8 +256,8 @@ function minRules() {
     updateRangeButton.classList.add("updatebutton-active")
     updateRangeButton.disabled = false;
   } else if (maxRangeInput.value === "" || minRangeInput.value === ""){
-    maxRangeInput.classList.remove("challengeform-error");
-    maxRangeError.classList.add("hidden");
+    minRangeInput.classList.remove("challengeform-error");
+    minRangeError.classList.add("hidden");
     updateRangeButton.classList.remove("updatebutton-active")
     updateRangeButton.disabled = true;
   } else {

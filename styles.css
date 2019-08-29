@@ -101,7 +101,8 @@ body {
   color: white;
   background-color: #D0D2D3;
   border-radius: 20px;
-  margin: 20px 10px 20px 10px;
+  margin: 20px 10px 0px 5px;
+  height: 35px;
   font-size: 100%;
   font-weight: 700;
   padding: 7px;
@@ -478,7 +479,7 @@ button.clear-active:active {
   }
   .main-section1-forms {
     width: 100%;
-    height: 750px;
+    height: 865px;
   }
   .main-section2-cards {
     width: 100%;
